@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cargotrans Co., Ltd. | Freight Forwarding & Logistics Solutions</title>
+  <meta name="description" content="Cargotrans Co., Ltd. - Specializes in logistics services, sea and air transportation, and customs declaration. Safety, speed and optimal cost. Contact now!" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"Cargotrans Co., Ltd.","url":"https://cargotrans.vn","slogan":"Reliable Global Logistics Solutions","email":"info@cargotrans.vn","telephone":"+84-243-222-2131","foundingDate":"2014-01-01","address":{"@type":"PostalAddress","streetAddress":"No. 19, Ha Dinh Lakeside Road","addressLocality":"Hanoi","postalCode":"10000","addressCountry":"VN"}}
+  </script>
+
+<style>
+/* ====================================================
+   ROOT + RESET
+==================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Brand - Exact CARGOTRANS logo colors */
+  --navy:       #01004A;
+  --navy-dark:  #000033;
+  --navy-mid:   #0B1460;
+  --navy-light: #163D8F;
+  --navy-pale:  #e8edf5;
+  --navy-50:    #f0f4fa;
+
+  /* Neutral */
+  --white:      #ffffff;
+  --gray-50:    #f8f9fb;
+  --gray-100:   #eef1f6;
+  --gray-200:   #dde3ed;
+  --gray-400:   #8b9ab5;
+  --gray-600:   #4a5a73;
+  --gray-800:   #1e2d42;
+
+  /* Accent */
+  --gold:       #c8a553;
+  --gold-light: #e5c97a;
+  --gold-pale:  #fdf6e3;
+
+  /* Semantic */
+  --text-primary:   #1a2740;
+  --text-secondary: #4a5a73;
+  --text-muted:     #8b9ab5;
+
+  --radius-xs:  6px;
+  --radius-sm:  10px;
+  --radius-md:  16px;
+  --radius-lg:  24px;
+  --radius-xl:  32px;
+  --radius-pill:9999px;
+
+  --font-d: 'Outfit', sans-serif;
+  --font-b: 'DM Sans', sans-serif;
+
+  --ease-expo:   cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --shadow-sm: 0 2px 8px rgba(1,0,74,0.08);
+  --shadow-md: 0 8px 32px rgba(1,0,74,0.12);
+  --shadow-lg: 0 24px 64px rgba(1,0,74,0.15);
+  --shadow-xl: 0 40px 100px rgba(1,0,74,0.2);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-b);
+  background: var(--white);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+::selection { background: var(--navy); color: var(--white); }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--gray-50); }
+::-webkit-scrollbar-thumb { background: var(--navy-light); border-radius: 2px; }
+
+/* ====================================================
+   UTILITIES
+==================================================== */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+
+.section-tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-d); font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--navy); background: var(--navy-pale);
+  border: 1px solid rgba(1,0,74,0.15);
+  border-radius: var(--radius-pill); padding: 0.35rem 0.9rem;
+  margin-bottom: 1rem;
+}
+.section-tag::before {
+  content: ''; width: 5px; height: 5px;
+  border-radius: 50%; background: var(--navy); flex-shrink: 0;
+}
+
+.reveal { opacity: 0; transform: translateY(28px); will-change: opacity, transform; }
+.reveal-left { opacity: 0; transform: translateX(-40px); will-change: opacity, transform; }
+.reveal-right { opacity: 0; transform: translateX(40px); will-change: opacity, transform; }
+.reveal.is-visible { opacity: 1 !important; transform: none !important; }
+
+/* ====================================================
+   SCROLL PROGRESS
+==================================================== */
+#progress-bar {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--navy), var(--gold));
+  z-index: 200; transform-origin: left;
+}
+
+/* ====================================================
+   NAV
+==================================================== */
+#navbar {
+  position: fixed; top: 1rem; left: 50%; transform: translateX(-50%);
+  z-index: 50; width: calc(100% - 2.5rem); max-width: 1180px;
+  transition: top 0.4s var(--ease-expo);
+}
+
+.nav-pill {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.65rem 0.75rem 0.65rem 1.25rem;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(1,0,74,0.1);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-md), 0 1px 0 rgba(255,255,255,0.8) inset;
+}
+
+.nav-logo {
+  display: flex; align-items: center; gap: 0.6rem; text-decoration: none;
+}
+.nav-logo-mark {
+  width: 38px; height: 38px; border-radius: var(--radius-sm);
+  background: var(--navy); display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px rgba(35,53,81,0.3);
+  flex-shrink: 0;
+}
+.nav-logo-mark svg { width: 22px; height: 22px; }
+.nav-logo-name {
+  font-family: var(--font-d); font-weight: 800; font-size: 1.05rem;
+  color: var(--navy); letter-spacing: -0.02em;
+}
+.nav-logo-name em { color: var(--gold); font-style: normal; }
+
+.nav-links { display: flex; align-items: center; gap: 0.1rem; list-style: none; }
+.nav-links a {
+  font-size: 0.875rem; font-weight: 500; color: var(--text-secondary);
+  text-decoration: none; padding: 0.45rem 0.9rem; border-radius: var(--radius-pill);
+  transition: all 0.25s var(--ease-expo);
+}
+.nav-links a:hover { color: var(--navy); background: var(--navy-pale); }
+
+.nav-cta {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-family: var(--font-b); font-size: 0.875rem; font-weight: 600;
+  color: var(--white); background: var(--navy); text-decoration: none;
+  padding: 0.6rem 1.4rem 0.6rem 1rem; border-radius: var(--radius-pill);
+  transition: all 0.35s var(--ease-spring);
+  box-shadow: 0 2px 12px rgba(35,53,81,0.3);
+}
+.nav-cta:hover { background: var(--navy-mid); transform: scale(1.04) translateY(-1px); box-shadow: 0 8px 24px rgba(35,53,81,0.35); }
+.nav-cta-icon {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: rgba(255,255,255,0.15); display: flex;
+  align-items: center; justify-content: center;
+  transition: transform 0.3s var(--ease-spring);
+}
+.nav-cta:hover .nav-cta-icon { transform: translateX(3px) translateY(-1px) scale(1.1); }
+
+.hamburger {
+  display: none; flex-direction: column; gap: 5px; cursor: pointer;
+  padding: 0.5rem; border: none; background: none;
+}
+.hamburger span {
+  display: block; width: 22px; height: 2px; background: var(--navy);
+  border-radius: 2px; transition: all 0.4s var(--ease-expo); transform-origin: center;
+}
+
+/* Mobile overlay */
+#mobile-overlay {
+  position: fixed; inset: 0; z-index: 49;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+  opacity: 0; pointer-events: none; transition: opacity 0.4s var(--ease-expo);
+}
+#mobile-overlay.open { opacity: 1; pointer-events: all; }
+.mobile-nav-links { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; list-style: none; }
+.mobile-nav-links a {
+  font-family: var(--font-d); font-size: 2.25rem; font-weight: 800;
+  color: var(--navy); text-decoration: none;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.5s var(--ease-expo), transform 0.5s var(--ease-expo), color 0.2s;
+}
+.mobile-nav-links a:hover { color: var(--gold); }
+#mobile-overlay.open .mobile-nav-links a { opacity: 1; transform: translateY(0); }
+#mobile-overlay.open .mobile-nav-links li:nth-child(1) a { transition-delay: 0.06s; }
+#mobile-overlay.open .mobile-nav-links li:nth-child(2) a { transition-delay: 0.12s; }
+#mobile-overlay.open .mobile-nav-links li:nth-child(3) a { transition-delay: 0.18s; }
+#mobile-overlay.open .mobile-nav-links li:nth-child(4) a { transition-delay: 0.24s; }
+
+/* ====================================================
+   HERO
+==================================================== */
+#hero {
+  position: relative; min-height: 100dvh;
+  background: url('assets/images/hero_logistics_world.png') center/cover no-repeat;
+  overflow: hidden; display: flex; align-items: center;
+}
+#hero::after {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(135deg, rgba(0,0,51,0.85) 0%, rgba(1,0,74,0.65) 100%);
+}
+
+/* Animated background grid lines */
+.hero-grid {
+  position: absolute; inset: 0; z-index: 2;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* Glowing orbs */
+.hero-orb {
+  position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 2;
+}
+.hero-orb-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(200,165,83,0.25) 0%, transparent 70%);
+  top: -100px; right: 5%;
+}
+.hero-orb-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(61,90,135,0.5) 0%, transparent 70%);
+  bottom: -80px; left: 10%;
+}
+
+.hero-inner {
+  position: relative; z-index: 3;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center; width: 100%;
+  padding-top: 6rem;
+}
+
+.hero-text { }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); background: rgba(200,165,83,0.12);
+  border: 1px solid rgba(200,165,83,0.3);
+  border-radius: var(--radius-pill); padding: 0.4rem 1rem;
+  margin-bottom: 1.75rem;
+  opacity: 0; transform: translateY(16px);
+}
+.hero-badge::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold); animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.hero-h1 {
+  font-family: var(--font-d); font-size: clamp(2.8rem, 4.5vw, 4.5rem);
+  font-weight: 900; line-height: 1.05; letter-spacing: -0.04em;
+  color: var(--white); margin-bottom: 1.5rem;
+  opacity: 0; transform: translateY(24px);
+}
+.hero-h1 .accent { color: var(--gold); }
+.hero-h1 .outline {
+  -webkit-text-stroke: 2px rgba(255,255,255,0.5);
+  color: transparent;
+}
+
+.hero-sub {
+  font-size: 1.05rem; color: rgba(255,255,255,0.7); line-height: 1.75;
+  max-width: 480px; margin-bottom: 2.5rem;
+  opacity: 0; transform: translateY(20px);
+}
+
+.hero-btns {
+  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+  opacity: 0; transform: translateY(18px);
+}
+
+.btn-white {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: var(--font-b); font-size: 0.9rem; font-weight: 700;
+  color: var(--navy); background: var(--white); text-decoration: none;
+  padding: 0.9rem 1.75rem; border-radius: var(--radius-pill);
+  transition: all 0.4s var(--ease-spring);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+.btn-white:hover { background: var(--gold-light); transform: scale(1.04) translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+.btn-white-icon {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(35,53,81,0.12); display: flex; align-items: center; justify-content: center;
+  transition: transform 0.3s var(--ease-spring);
+}
+.btn-white:hover .btn-white-icon { transform: translateX(4px) scale(1.1); }
+
+.btn-ghost-white {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-b); font-size: 0.9rem; font-weight: 600;
+  color: rgba(255,255,255,0.85); text-decoration: none;
+  padding: 0.9rem 1.75rem; border-radius: var(--radius-pill);
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: all 0.3s var(--ease-expo);
+}
+.btn-ghost-white:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.5); color: #fff; }
+
+/* Hero stats pills */
+.hero-stats {
+  display: flex; gap: 1.25rem; flex-wrap: wrap; margin-top: 2.5rem;
+  opacity: 0; transform: translateY(16px);
+}
+.hero-stat {
+  display: flex; align-items: center; gap: 0.75rem;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-pill); padding: 0.6rem 1.1rem;
+  backdrop-filter: blur(10px);
+}
+.hero-stat-val {
+  font-family: var(--font-d); font-size: 1.4rem; font-weight: 800;
+  color: var(--white); letter-spacing: -0.04em; line-height: 1;
+}
+.hero-stat-val sup { font-size: 0.8rem; color: var(--gold); }
+.hero-stat-label { font-size: 0.72rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* Hero visual side */
+.hero-visual {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  opacity: 0; transform: translateY(30px) scale(0.95);
+}
+
+.hero-visual-img {
+  width: 100%; max-width: 600px; height: auto;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(255,255,255,0.1);
+  position: relative; z-index: 2;
+}
+
+/* Floating badges on hero visual */
+.hero-float-badge {
+  position: absolute; z-index: 3;
+  background: white; border-radius: var(--radius-md);
+  padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.6rem;
+  box-shadow: var(--shadow-lg);
+}
+.hero-float-1 { top: 18%; right: -10%; }
+.hero-float-2 { bottom: 15%; left: -10%; }
+
+.hfb-icon {
+  width: 36px; height: 36px; border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.hfb-icon.plane { background: #e8f0fe; color: #233551; }
+.hfb-icon.ship  { background: #e3f2fd; color: #1565c0; }
+.hfb-val { font-family: var(--font-d); font-size: 1.1rem; font-weight: 800; color: var(--navy); line-height: 1; }
+.hfb-sub { font-size: 0.68rem; color: var(--text-muted); margin-top: 1px; }
+
+
+/* ====================================================
+   TRANSPORT MODES  (3D visual section)
+==================================================== */
+#transport {
+  padding: 6rem 0;
+  background: var(--gray-50);
+  border-top: 1px solid var(--gray-100);
+}
+
+.transport-header { text-align: center; margin-bottom: 4rem; }
+.transport-header h2 {
+  font-family: var(--font-d); font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800; color: var(--navy); letter-spacing: -0.03em; margin-bottom: 0.75rem;
+}
+.transport-header p { font-size: 1rem; color: var(--text-secondary); max-width: 460px; margin: 0 auto; }
+
+.transport-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+}
+
+.transport-card {
+  background: var(--white); border-radius: var(--radius-xl);
+  border: 1px solid var(--gray-100);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all 0.45s var(--ease-expo);
+  cursor: pointer;
+}
+.transport-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); border-color: var(--navy-pale); }
+
+.transport-card-visual {
+  height: 220px; display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+
+/* Airplane card */
+.tc-air { background: linear-gradient(135deg, #e8f0fe 0%, #c5d8f8 100%); }
+/* Ship card */
+.tc-sea { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); }
+/* Truck card */
+.tc-road { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); }
+/* Customs card */
+.tc-customs { background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%); }
+/* Warehouse card */
+.tc-ware { background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); }
+/* DtoD card */
+.tc-dtod { background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); }
+
+.transport-card-img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s var(--ease-expo);
+}
+.transport-card:hover .transport-card-img { transform: scale(1.05); }
+
+/* SVG Vehicle Illustrations */
+.vehicle-svg-wrap {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+
+.transport-card-body { padding: 1.5rem 1.75rem 2rem; }
+.tc-tag {
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--navy); background: var(--navy-pale);
+  border-radius: var(--radius-pill); padding: 0.25rem 0.7rem;
+  display: inline-block; margin-bottom: 0.75rem;
+}
+.transport-card-body h3 {
+  font-family: var(--font-d); font-size: 1.2rem; font-weight: 800;
+  color: var(--navy); margin-bottom: 0.5rem; letter-spacing: -0.02em;
+}
+.transport-card-body p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
+/* ====================================================
+   ABOUT
+==================================================== */
+#about {
+  padding: 7rem 0;
+  background: var(--white);
+}
+
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+
+.about-visual { position: relative; }
+.about-img-wrap {
+  border-radius: var(--radius-xl); overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--gray-100);
+}
+.about-img-wrap img { width: 100%; height: 460px; object-fit: cover; display: block; }
+
+/* Floating stat cards */
+.about-float {
+  position: absolute; background: var(--white);
+  border-radius: var(--radius-lg); padding: 1rem 1.25rem;
+  box-shadow: var(--shadow-lg); border: 1px solid var(--gray-100);
+}
+.about-float-1 { bottom: -1.5rem; left: -1.75rem; }
+.about-float-2 { top: 2rem; right: -1.75rem; }
+
+.af-label { font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.12em; }
+.af-value { font-family: var(--font-d); font-size: 1.8rem; font-weight: 900; color: var(--navy); letter-spacing: -0.05em; line-height: 1.1; }
+.af-value span { color: var(--gold); }
+
+.about-text {}
+.about-text h2 {
+  font-family: var(--font-d); font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+  font-weight: 800; color: var(--navy); letter-spacing: -0.03em; line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+.about-text > p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem; }
+
+.strengths { display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 2.25rem; }
+.strength-item {
+  display: flex; align-items: center; gap: 0.8rem;
+  padding: 0.75rem 1rem; background: var(--navy-50);
+  border-radius: var(--radius-md); border: 1px solid var(--navy-pale);
+  transition: all 0.4s var(--ease-expo);
+  cursor: pointer;
+}
+.strength-item:hover { background: var(--navy-pale); }
+.strength-check {
+  width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+  background: var(--gray-200); border: 2px solid var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 0.7rem; transition: all 0.5s var(--ease-spring);
+  position: relative; overflow: hidden;
+}
+.strength-check::before {
+  content: ''; position: absolute; inset: 0; border-radius: 50%;
+  background: var(--navy); transform: scale(1); transition: transform 0.45s var(--ease-spring);
+}
+.strength-check .ck { position: relative; z-index: 1; opacity: 1; transform: scale(1) rotate(0deg); transition: all 0.4s var(--ease-spring) 0.15s; }
+.strength-item span { font-size: 0.9rem; font-weight: 500; color: var(--navy); }
+
+.contact-person-card {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--gray-50); border: 1px solid var(--gray-100);
+  border-radius: var(--radius-lg); margin-top: 0.5rem;
+}
+.cp-avatar {
+  width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  border: 2px solid var(--gold); color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-d); font-weight: 800; font-size: 1.2rem;
+}
+.cp-info { flex: 1; }
+.cp-name { font-weight: 700; font-size: 0.9rem; color: var(--navy); }
+.cp-role { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+.cp-links { display: flex; gap: 0.4rem; }
+.cp-link {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--white); border: 1px solid var(--gray-200);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted); text-decoration: none;
+  transition: all 0.25s var(--ease-expo);
+}
+.cp-link:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+/* ====================================================
+   WHY US - bento style with visuals
+==================================================== */
+#why {
+  padding: 7rem 0;
+  background: var(--navy);
+  position: relative; overflow: hidden;
+}
+
+/* Animated globe bg */
+#why::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='800' height='600' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='400' cy='300' r='260' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1'/%3E%3Ccircle cx='400' cy='300' r='200' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3Ccircle cx='400' cy='300' r='140' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3Cpath d='M140 300 Q400 150 660 300 Q400 450 140 300' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3Cpath d='M140 300 Q400 200 660 300' fill='none' stroke='rgba(255,255,255,0.02)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: cover; background-position: center right;
+  opacity: 0.6;
+}
+
+.why-grid {
+  display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.25rem; position: relative; z-index: 1;
+}
+
+.why-hd {
+  grid-column: span 12; margin-bottom: 1.5rem; text-align: center;
+}
+.why-hd h2 {
+  font-family: var(--font-d); font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800; color: var(--white); letter-spacing: -0.03em;
+}
+.why-hd p { font-size: 0.95rem; color: rgba(255,255,255,0.55); margin-top: 0.6rem; }
+
+.why-card {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-xl); padding: 2rem;
+  transition: all 0.45s var(--ease-expo);
+  position: relative; overflow: hidden;
+}
+.why-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-4px); border-color: rgba(200,165,83,0.3); }
+.why-card::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,165,83,0.4), transparent);
+  opacity: 0; transition: opacity 0.4s;
+}
+.why-card:hover::after { opacity: 1; }
+
+.why-card.c3 { grid-column: span 3; }
+.why-card.c4 { grid-column: span 4; }
+.why-card.c5 { grid-column: span 5; }
+.why-card.c6 { grid-column: span 6; }
+.why-card.c7 { grid-column: span 7; }
+.why-card.c8 { grid-column: span 8; }
+.why-card.c12 { grid-column: span 12; }
+
+/* Wide feature card */
+.why-card.feature {
+  background: rgba(255,255,255,0.08);
+  display: flex; align-items: stretch; gap: 0; overflow: hidden; padding: 0;
+  min-height: 260px;
+}
+.wf-text { padding: 2rem 2rem 2.25rem; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.wf-text h3 { font-family: var(--font-d); font-size: 1.5rem; font-weight: 800; color: var(--white); margin-bottom: 0.6rem; letter-spacing: -0.02em; }
+.wf-text p { font-size: 0.87rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+.why-card-icon {
+  width: 48px; height: 48px; border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;
+  color: var(--gold); margin-bottom: 1.25rem; font-size: 1.4rem;
+}
+.why-card h3 { font-family: var(--font-d); font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+.why-card p { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+/* Clients big number card */
+.why-clients {
+  background: linear-gradient(135deg, rgba(200,165,83,0.15), rgba(200,165,83,0.05));
+  border-color: rgba(200,165,83,0.25);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.wc-num {
+  font-family: var(--font-d); font-size: 4.5rem; font-weight: 900;
+  color: var(--gold); letter-spacing: -0.06em; line-height: 1;
+}
+.wc-plus { font-size: 2.5rem; }
+.wc-label { font-size: 0.82rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.15em; margin-top: 0.5rem; }
+
+/* ====================================================
+   EQUIPMENT
+==================================================== */
+#equipment {
+  padding: 7rem 0;
+  background: var(--gray-50);
+}
+
+.equip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3.5rem; }
+
+.equip-card {
+  background: var(--white); border: 1px solid var(--gray-100);
+  border-radius: var(--radius-xl); padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.4s var(--ease-expo);
+  position: relative; overflow: hidden;
+}
+.equip-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--navy-pale); }
+.equip-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--navy), var(--navy-light));
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  transform: scaleX(0); transform-origin: left; transition: transform 0.4s var(--ease-expo);
+}
+.equip-card:hover::before { transform: scaleX(1); }
+
+.equip-visual {
+  width: 100%; height: 140px; border-radius: var(--radius-md);
+  overflow: hidden; margin-bottom: 1.25rem;
+}
+.equip-visual img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.4s var(--ease-expo);
+}
+.equip-card:hover .equip-visual img { transform: scale(1.05); }
+.equip-card h3 { font-family: var(--font-d); font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+.equip-card p { font-size: 0.83rem; color: var(--text-secondary); line-height: 1.65; }
+
+/* ====================================================
+   LOGISTICS VISUAL  (full-width image + overlay stats)
+==================================================== */
+#logistic-visual {
+  position: relative; height: 520px; overflow: hidden;
+}
+.lv-img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+}
+.lv-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,51,0.92) 0%, rgba(1,0,74,0.7) 50%, rgba(0,0,51,0.5) 100%);
+  display: flex; align-items: center;
+}
+.lv-content { position: relative; z-index: 1; }
+.lv-content h2 {
+  font-family: var(--font-d); font-size: clamp(2.25rem, 4vw, 3.75rem);
+  font-weight: 900; color: var(--white); letter-spacing: -0.04em;
+  line-height: 1.1; margin-bottom: 1.5rem;
+}
+.lv-content h2 span { color: var(--gold); }
+.lv-stats { display: flex; gap: 3.5rem; }
+.lv-stat-num {
+  font-family: var(--font-d); font-size: 2.25rem; font-weight: 900;
+  color: var(--white); letter-spacing: -0.05em; line-height: 1;
+}
+.lv-stat-num sub { font-size: 1.25rem; color: var(--gold); }
+.lv-stat-lbl { font-size: 0.72rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.15em; margin-top: 0.4rem; }
+
+/* ====================================================
+   PARTNERS / AFFILIATIONS
+==================================================== */
+#partners {
+  padding: 5rem 0;
+  background: var(--white);
+  border-top: 1px solid var(--gray-100);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.partners-top { text-align: center; margin-bottom: 2.5rem; }
+.partners-top p { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+
+.marquee-wrap {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  margin-bottom: 3.5rem;
+}
+.marquee-track {
+  display: flex; gap: 2.5rem; width: max-content; align-items: center;
+  animation: marquee 32s linear infinite;
+}
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+
+.partner-logo {
+  height: 55px; display: flex; align-items: center; justify-content: center;
+  background: var(--white); border-radius: var(--radius-sm);
+  padding: 0.5rem 1rem; border: 1px solid var(--gray-100);
+  box-shadow: var(--shadow-sm);
+  filter: opacity(0.85); transition: all 0.4s var(--ease-expo);
+}
+.partner-logo:hover { filter: opacity(1); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.partner-logo img { max-height: 36px; max-width: 120px; object-fit: contain; }
+
+.cert-row {
+  display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
+}
+.cert-img { height: 48px; filter: opacity(0.85); transition: all 0.3s; }
+.cert-img:hover { filter: opacity(1); transform: translateY(-3px); }
+
+/* ====================================================
+   CONTACT
+==================================================== */
+#contact {
+  padding: 7rem 0;
+  background: var(--gray-50);
+}
+
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+
+.contact-info h2 {
+  font-family: var(--font-d); font-size: clamp(1.9rem, 3vw, 2.75rem);
+  font-weight: 800; color: var(--navy); letter-spacing: -0.03em; margin-bottom: 1rem;
+}
+.contact-info > p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 2.5rem; }
+
+.contact-items { display: flex; flex-direction: column; gap: 1.1rem; }
+.contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+.ci-icon {
+  width: 42px; height: 42px; flex-shrink: 0; border-radius: var(--radius-sm);
+  background: var(--navy); display: flex; align-items: center; justify-content: center; color: white;
+  box-shadow: 0 4px 12px rgba(35,53,81,0.25);
+}
+.ci-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.2rem; }
+.ci-val, .ci-val a {
+  font-size: 0.9rem; color: var(--text-primary); font-weight: 500;
+  text-decoration: none; transition: color 0.2s;
+}
+.ci-val a:hover { color: var(--navy); }
+
+/* Form card */
+.contact-form-card {
+  background: var(--white); border: 1px solid var(--gray-100);
+  border-radius: var(--radius-xl); padding: 2.25rem;
+  box-shadow: var(--shadow-md);
+}
+.contact-form-card h3 {
+  font-family: var(--font-d); font-size: 1.35rem; font-weight: 800;
+  color: var(--navy); margin-bottom: 1.75rem;
+}
+.fg { margin-bottom: 1.1rem; }
+.fg label { display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.45rem; }
+.fg input, .fg textarea {
+  width: 100%;
+  background: var(--gray-50); border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-md); padding: 0.75rem 1rem;
+  font-family: var(--font-b); font-size: 0.9rem; color: var(--text-primary);
+  outline: none; transition: all 0.3s var(--ease-expo);
+}
+.fg input:focus, .fg textarea:focus {
+  border-color: var(--navy); background: white;
+  box-shadow: 0 0 0 3px rgba(35,53,81,0.08);
+}
+.fg input::placeholder, .fg textarea::placeholder { color: var(--text-muted); }
+.fg textarea { resize: none; height: 110px; }
+
+.btn-navy {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  width: 100%; font-family: var(--font-b); font-size: 0.9rem; font-weight: 700;
+  color: var(--white); background: var(--navy);
+  padding: 0.9rem 1.75rem; border-radius: var(--radius-pill);
+  border: none; cursor: pointer;
+  transition: all 0.4s var(--ease-spring);
+  box-shadow: 0 4px 16px rgba(35,53,81,0.3);
+}
+.btn-navy:hover { background: var(--navy-mid); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(35,53,81,0.4); }
+.btn-icon { width: 26px; height: 26px; border-radius: 50%; background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; transition: transform 0.3s var(--ease-spring); }
+.btn-navy:hover .btn-icon { transform: translateX(3px) scale(1.1); }
+
+/* Quick quote */
+.quote-bar {
+  margin-top: 2rem; padding: 1.5rem;
+  background: var(--white); border: 1px solid var(--gray-100);
+  border-radius: var(--radius-lg); display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;
+  box-shadow: var(--shadow-sm);
+}
+.quote-bar p { font-size: 0.88rem; color: var(--text-secondary); flex: 1; min-width: 200px; }
+.quote-bar-form { display: flex; gap: 0; flex: 1; min-width: 240px; }
+.quote-bar-form input {
+  flex: 1;
+  background: var(--gray-50); border: 1.5px solid var(--gray-100);
+  border-right: none; border-radius: var(--radius-pill) 0 0 var(--radius-pill);
+  padding: 0.65rem 1.1rem; font-family: var(--font-b); font-size: 0.85rem;
+  color: var(--text-primary); outline: none; transition: border-color 0.25s;
+}
+.quote-bar-form input:focus { border-color: var(--navy); }
+.quote-bar-form input::placeholder { color: var(--text-muted); }
+.quote-bar-form button {
+  font-family: var(--font-b); font-size: 0.82rem; font-weight: 700;
+  color: var(--white); background: var(--navy);
+  border: none; cursor: pointer; padding: 0.65rem 1.25rem; white-space: nowrap;
+  border-radius: 0 var(--radius-pill) var(--radius-pill) 0;
+  transition: all 0.3s var(--ease-spring);
+}
+.quote-bar-form button:hover { background: var(--navy-mid); }
+
+/* ====================================================
+   CTA SECTION
+==================================================== */
+#cta { 
+  padding: 6rem 0; position: relative; overflow: hidden; 
+  background: url('assets/images/hero_logistics_world.png') center/cover no-repeat fixed; 
+}
+#cta::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(135deg, rgba(0,0,51,0.92) 0%, rgba(1,0,74,0.85) 100%);
+}
+.cta-inner { text-align: center; position: relative; z-index: 1; }
+.cta-inner h2 {
+  font-family: var(--font-d); font-size: clamp(2.25rem, 4.5vw, 4rem);
+  font-weight: 900; color: var(--white); letter-spacing: -0.04em; margin-bottom: 0.75rem;
+}
+.cta-inner h2 em { color: var(--gold); font-style: normal; }
+.cta-inner p { font-size: 1rem; color: rgba(255,255,255,0.7); margin-bottom: 2.5rem; }
+.cta-btns { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+/* ====================================================
+   FOOTER
+==================================================== */
+footer {
+  padding: 3.5rem 0 2rem; position: relative;
+  background: url('assets/images/hero_logistics_world.png') bottom/cover no-repeat;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+footer::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background: rgba(0,0,51,0.96);
+}
+footer .container { position: relative; z-index: 1; }
+.footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 2rem; }
+.footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.7; margin: 0.75rem 0 1rem; }
+.footer-social a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem;
+  transition: all 0.3s var(--ease-expo);
+}
+.footer-social a:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+.footer-col h4 { font-family: var(--font-d); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: rgba(255,255,255,0.5); margin-bottom: 1.1rem; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+.footer-links a { font-size: 0.87rem; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--white); }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+.footer-meta { display: flex; gap: 1.5rem; }
+.footer-meta a { font-size: 0.78rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+.footer-meta a:hover { color: rgba(255,255,255,0.8); }
+
+/* Footer logo */
+.footer-logo-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem; }
+.footer-logo-mark { width: 36px; height: 36px; border-radius: var(--radius-sm); background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; }
+.footer-logo-mark svg { width: 20px; height: 20px; }
+.footer-logo-name { font-family: var(--font-d); font-weight: 800; font-size: 1rem; color: var(--white); }
+.footer-logo-name em { color: var(--gold); font-style: normal; }
+
+/* ====================================================
+   RESPONSIVE
+==================================================== */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 3rem; padding-top: 8rem; }
+  .hero-visual { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-visual { max-width: 560px; margin: 0 auto; }
+  
+  /* Reset Why Grid for Tablet */
+  .why-card.feature { grid-column: span 12; }
+  .why-card.c5, .why-card.c7 { grid-column: span 6; }
+  .why-clients { grid-column: span 6; }
+  .why-card.c4 { grid-column: span 6; }
+  .why-card.c6 { grid-column: span 6; }
+  .why-card.c8 { grid-column: span 12; }
+  
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .transport-cards { grid-template-columns: 1fr 1fr; }
+  .equip-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 1.25rem; }
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .hero-inner { padding-top: 7rem; }
+  .hero-h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
+  .hero-stats { gap: 0.75rem; }
+  .hero-stat { padding: 0.5rem 0.9rem; }
+  .transport-cards { grid-template-columns: 1fr; }
+  .equip-grid { grid-template-columns: 1fr; }
+  
+  /* Reset Why Grid for Mobile */
+  .why-card.feature, .why-card.c5, .why-card.c7,
+  .why-card.c4, .why-card.c3, .why-card.c6, .why-card.c8,
+  .why-clients { grid-column: span 12; }
+  
+  .lv-stats { flex-direction: column; gap: 1.5rem; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .about-float { display: none; }
+  .quote-bar { flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; }
+}
+
+/* ====================================================
+   PRELOADER
+==================================================== */
+#preloader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--navy); display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.preloader-text {
+  font-family: var(--font-d); font-size: 2.5rem; font-weight: 900;
+  color: var(--white); letter-spacing: 0.2em; display: flex; gap: 0.2rem;
+  overflow: hidden;
+}
+.preloader-text span {
+  display: inline-block; transform: translateY(100%); opacity: 0;
+  animation: preloader-letter 0.8s var(--ease-expo) forwards;
+}
+.preloader-text span:nth-child(1) { animation-delay: 0.0s; }
+.preloader-text span:nth-child(2) { animation-delay: 0.05s; }
+.preloader-text span:nth-child(3) { animation-delay: 0.1s; }
+.preloader-text span:nth-child(4) { animation-delay: 0.15s; }
+.preloader-text span:nth-child(5) { animation-delay: 0.2s; }
+.preloader-text span:nth-child(6) { animation-delay: 0.25s; }
+.preloader-text span:nth-child(7) { animation-delay: 0.3s; }
+.preloader-text span:nth-child(8) { animation-delay: 0.35s; }
+.preloader-text span:nth-child(9) { animation-delay: 0.4s; }
+.preloader-text span:nth-child(10) { animation-delay: 0.45s; }
+
+@keyframes preloader-letter {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.preloader-bar {
+  width: 200px; height: 2px; background: rgba(255,255,255,0.1);
+  margin-top: 1.5rem; border-radius: 2px; overflow: hidden;
+}
+.preloader-progress {
+  width: 0%; height: 100%; background: var(--gold);
+  animation: load-progress 2s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+}
+@keyframes load-progress {
+  0% { width: 0%; }
+  50% { width: 60%; }
+  100% { width: 100%; }
+}
+body.loading { overflow: hidden; height: 100vh; }
+</style>
+</head>
+<body class="loading">
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="preloader-text">
+    <span>C</span><span>A</span><span>R</span><span>G</span><span>O</span><span>T</span><span>R</span><span>A</span><span>N</span><span>S</span>
+  </div>
+  <div class="preloader-bar"><div class="preloader-progress"></div></div>
+</div>
+
+<!-- Progress -->
+<div id="progress-bar"></div>
+
+<!-- Mobile overlay -->
+<div id="mobile-overlay">
+  <ul class="mobile-nav-links">
+    <li><a href="#" onclick="closeMobile()">Home</a></li>
+    <li><a href="#about" onclick="closeMobile()">About</a></li>
+    <li><a href="#transport" onclick="closeMobile()">Services</a></li>
+    <li><a href="#contact" onclick="closeMobile()">Contact</a></li>
+  </ul>
+  <a href="#contact" class="btn-navy" style="width:220px;text-align:center;" onclick="closeMobile()">Get a Free Quote</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-pill">
+    <a href="#" class="nav-logo">
+      <img src="assets/images/Cargotrans.png" alt="Cargotrans" style="height: 38px; width: auto;" />
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#transport">Services</a></li>
+      <li><a href="#equipment">Equipment</a></li>
+      <li><a href="#partners">Partners</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="#contact" class="nav-cta">
+      Get a Quote
+      <span class="nav-cta-icon">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <!-- Vanta 3D Background -->
+  <div id="hero-vanta" style="position: absolute; inset: 0; z-index: 0;"></div>
+
+  <div class="hero-grid"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge" id="hbadge">
+          Founded 2014 · Vietnam
+        </div>
+
+        <h1 class="hero-h1" id="hh1">
+          Reliable <span class="accent">Global</span><br/>
+          <span class="outline">Logistics</span> Solutions
+        </h1>
+
+        <p class="hero-sub" id="hsub">
+          Cargotrans Co., Ltd. specializes in sea freight, air freight, customs clearance and door-to-door delivery - connecting Vietnam to the world.
+        </p>
+
+        <div class="hero-btns" id="hbtns">
+          <a href="#contact" class="btn-white">
+            Book a Shipment
+            <span class="btn-white-icon">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M6.5 2l4.5 4.5L6.5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+          <a href="#about" class="btn-ghost-white">
+            Discover More
+          </a>
+        </div>
+
+        <div class="hero-stats" id="hstats">
+          <div class="hero-stat">
+            <div>
+              <div class="hero-stat-val"><span class="counter" data-target="12">0</span><sup>+</sup></div>
+              <div class="hero-stat-label">Years</div>
+            </div>
+          </div>
+          <div class="hero-stat">
+            <div>
+              <div class="hero-stat-val"><span class="counter" data-target="1688">0</span><sup>+</sup></div>
+              <div class="hero-stat-label">Clients</div>
+            </div>
+          </div>
+          <div class="hero-stat">
+            <div>
+              <div class="hero-stat-val"><span class="counter" data-target="541">0</span><sup>+</sup></div>
+              <div class="hero-stat-label">Staff</div>
+            </div>
+          </div>
+          <div class="hero-stat">
+            <div>
+              <div class="hero-stat-val"><span class="counter" data-target="5">0</span><sup>+</sup></div>
+              <div class="hero-stat-label">Offices</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" id="hvisual">
+        <img src="assets/images/hero_logistics_world.png" class="hero-visual-img" alt="Cargo ship" loading="eager" />
+
+        <div class="hero-float-badge hero-float-1">
+          <div class="hfb-icon ship">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1565c0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/>
+              <path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/>
+              <path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/>
+              <path d="M12 10v4"/>
+              <path d="M12 2v3"/>
+            </svg>
+          </div>
+          <div>
+            <div class="hfb-val">Ocean Freight</div>
+            <div class="hfb-sub">Cost effective</div>
+          </div>
+        </div>
+
+        <div class="hero-float-badge hero-float-2">
+          <div class="hfb-icon plane">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#01004A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="hfb-val">Air Freight</div>
+            <div class="hfb-sub">Fast delivery</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== TRANSPORT MODES ===== -->
+<section id="transport">
+  <div class="container">
+    <div class="transport-header">
+      <div class="section-tag reveal">Our Services</div>
+      <h2 class="reveal">Logistics Services for Your Business</h2>
+      <p class="reveal">End-to-end supply chain solutions for every mode of transport.</p>
+    </div>
+
+    <div class="transport-cards">
+      <!-- Ocean freight -->
+      <div class="transport-card reveal">
+        <div class="transport-card-visual tc-sea">
+          <img src="assets/images/banner/ocean-transport.jpeg" class="transport-card-img" alt="Ocean freight container ship" loading="lazy" />
+        </div>
+        <div class="transport-card-body">
+          <span class="tc-tag">Ocean Transport</span>
+          <h3>Sea Freight</h3>
+          <p>Cost-effective ocean freight services for global shipping - FCL, LCL, and bulk cargo handled with precision.</p>
+        </div>
+      </div>
+
+      <!-- Air freight -->
+      <div class="transport-card reveal">
+        <div class="transport-card-visual tc-air">
+          <img src="assets/images/banner/air-transport.jpeg" class="transport-card-img" alt="Air cargo aircraft" loading="lazy" />
+        </div>
+        <div class="transport-card-body">
+          <span class="tc-tag">Air Transport</span>
+          <h3>Fast Air Freight</h3>
+          <p>Reliable air freight solutions for urgent and high-value shipments to destinations worldwide - fast, secure, and tracked.</p>
+        </div>
+      </div>
+
+      <!-- Trucking -->
+      <div class="transport-card reveal">
+        <div class="transport-card-visual tc-road">
+          <img src="assets/images/banner/trucking.jpeg" class="transport-card-img" alt="Road transport trucking" loading="lazy" />
+        </div>
+        <div class="transport-card-body">
+          <span class="tc-tag">Trucking</span>
+          <h3>Road Transport</h3>
+          <p>Efficient and flexible trucking solutions for domestic and regional transport with real-time visibility.</p>
+        </div>
+      </div>
+
+      <!-- Customs -->
+      <div class="transport-card reveal">
+        <div class="transport-card-visual tc-customs">
+          <img src="assets/images/banner/customs-broker.jpeg" class="transport-card-img" alt="Customs clearance services" loading="lazy" />
+        </div>
+        <div class="transport-card-body">
+          <span class="tc-tag">Customs Broker</span>
+          <h3>Customs Clearance</h3>
+          <p>Expert customs clearance to simplify your import and export processes. Compliant, fast, and reliable.</p>
+        </div>
+      </div>
+
+      <!-- Warehousing -->
+      <div class="transport-card reveal">
+        <div class="transport-card-visual tc-ware">
+          <img src="assets/images/banner/warehousing.jpeg" class="transport-card-img" alt="Warehouse storage and distribution" loading="lazy" />
+        </div>
+        <div class="transport-card-body">
+          <span class="tc-tag">Warehousing</span>
+          <h3>Storage & Distribution</h3>
+          <p>Secure warehouse storage and optimized distribution to streamline your supply chain operations.</p>
+        </div>
+      </div>
+
+      <!-- Door-to-Door -->
+      <div class="transport-card reveal">
+        <div class="transport-card-visual tc-dtod">
+          <img src="assets/images/banner/door-to-door.jpeg" class="transport-card-img" alt="Door-to-door logistics service" loading="lazy" />
+        </div>
+        <div class="transport-card-body">
+          <span class="tc-tag">Door to Door</span>
+          <h3>Complete D2D Service</h3>
+          <p>End-to-end logistics management - from origin pickup to final-mile delivery, all handled by our team.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal-left">
+        <div class="about-img-wrap">
+          <img src="assets/images/about_team_office.png" alt="Cargotrans team and office" loading="lazy" width="680" height="460" />
+        </div>
+        <div class="about-float about-float-1">
+          <div class="af-label">Satisfied Clients</div>
+          <div class="af-value"><span class="counter" data-target="1688">0</span><span>+</span></div>
+        </div>
+        <div class="about-float about-float-2">
+          <div class="af-label">Founded</div>
+          <div class="af-value">20<span>14</span></div>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <div class="section-tag reveal">About Us</div>
+        <h2 class="reveal">Your Trusted Partner in Logistics</h2>
+        <p class="reveal">At Cargotrans Viet Nam, we deliver seamless, efficient, and innovative logistics that connect businesses to global markets. We manage the movement of goods from origin to destination with precision and care - reliability every step of the way.</p>
+
+        <ul class="strengths" id="strengths-list">
+          <li class="strength-item" data-delay="0">
+            <span class="strength-check"><span class="ck">✓</span></span>
+            <span>Safety and Reliability - every shipment handled with care</span>
+          </li>
+          <li class="strength-item" data-delay="150">
+            <span class="strength-check"><span class="ck">✓</span></span>
+            <span>End-to-End Transportation management</span>
+          </li>
+          <li class="strength-item" data-delay="300">
+            <span class="strength-check"><span class="ck">✓</span></span>
+            <span>Warehousing &amp; Distribution centers</span>
+          </li>
+          <li class="strength-item" data-delay="450">
+            <span class="strength-check"><span class="ck">✓</span></span>
+            <span>Fast and Flexible Transportation options</span>
+          </li>
+        </ul>
+
+        <div class="contact-person-card reveal">
+          <div class="cp-avatar">M</div>
+          <div class="cp-info">
+            <div class="cp-name">Mary</div>
+            <div class="cp-role">Sales Manager</div>
+          </div>
+          <div class="cp-links">
+            <a href="mailto:mary@cargotrans.vn" class="cp-link" title="Email Mary">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M1 4.5l6 4 6-4" stroke="currentColor" stroke-width="1.3"/></svg>
+            </a>
+            <a href="https://api.whatsapp.com/send/?phone=84947327796&text=Hello" target="_blank" rel="noopener noreferrer" class="cp-link" title="WhatsApp Mary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY CHOOSE US ===== -->
+<section id="why">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-hd">
+        <h2 class="reveal">Your Logistics Advantage</h2>
+        <p class="reveal">We understand every business has unique logistics needs.</p>
+      </div>
+
+      <!-- Clients big number -->
+      <div class="why-card why-clients c5 reveal">
+        <div class="wc-num"><span class="counter" data-target="1688">0</span><span class="wc-plus">+</span></div>
+        <div class="wc-label">Satisfied Clients Worldwide</div>
+      </div>
+
+      <!-- Reliability -->
+      <div class="why-card c7 reveal">
+        <div class="why-card-icon">🛡️</div>
+        <h3>Reliability You Can Trust</h3>
+        <p>Goods delivered safely and on time, every time - backed by rigorous quality controls and proactive communication throughout the shipping process.</p>
+      </div>
+
+      <!-- Feature card with animated CSS radar visual -->
+      <div class="why-card feature c7 reveal">
+        <div class="wf-text">
+          <div class="why-card-icon">🌐</div>
+          <h3>Global Reach, Local Expertise</h3>
+          <p>Strong presence across Vietnam with global partnerships spanning 50+ countries. We connect you to the world with local knowledge at every port.</p>
+        </div>
+      </div>
+
+      <!-- Customer centric -->
+      <div class="why-card c5 reveal">
+        <div class="why-card-icon">👥</div>
+        <h3>Customer-Centric Approach</h3>
+        <p>Tailored solutions and dedicated support designed around your unique business requirements and timelines.</p>
+      </div>
+
+      <!-- Comprehensive -->
+      <div class="why-card c4 reveal">
+        <div class="why-card-icon">📦</div>
+        <h3>Comprehensive Solutions</h3>
+        <p>From freight forwarding to warehousing - your entire supply chain covered.</p>
+      </div>
+
+      <!-- Fast -->
+      <div class="why-card c4 reveal">
+        <div class="why-card-icon">⚡</div>
+        <h3>Fast &amp; Flexible</h3>
+        <p>Responsive operations and flexible options to adapt to your changing business demands.</p>
+      </div>
+
+      <!-- Founded since -->
+      <div class="why-card c4 reveal">
+        <div class="why-card-icon">🏆</div>
+        <h3>12+ Years Experience</h3>
+        <p>Over a decade of excellence connecting Vietnamese businesses to global markets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FULL WIDTH LOGISTICS VISUAL ===== -->
+<section id="logistic-visual">
+  <img src="assets/images/hero_logistics_world.png" class="lv-img" alt="Global logistics operations" loading="lazy" />
+  <div class="lv-overlay">
+    <div class="container">
+      <div class="lv-content reveal">
+        <h2>Connecting Vietnam<br/>to the <span>World</span></h2>
+        <div class="lv-stats">
+          <div>
+            <div class="lv-stat-num"><span class="counter" data-target="5">0</span><sub>+</sub></div>
+            <div class="lv-stat-lbl">Global Offices</div>
+          </div>
+          <div>
+            <div class="lv-stat-num"><span class="counter" data-target="541">0</span><sub>+</sub></div>
+            <div class="lv-stat-lbl">Team Members</div>
+          </div>
+          <div>
+            <div class="lv-stat-num"><span class="counter" data-target="12">0</span><sub>+</sub></div>
+            <div class="lv-stat-lbl">Years Active</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EQUIPMENT ===== -->
+<section id="equipment">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:0.5rem;">
+    </div>
+    <div style="text-align:center;">
+      <h2 class="reveal" style="font-family:var(--font-d);font-size:clamp(1.9rem,3.5vw,2.9rem);font-weight:800;color:var(--navy);letter-spacing:-0.03em;margin-bottom:0.75rem;">Reliable Equipment · Seamless Operations</h2>
+      <p class="reveal" style="color:var(--text-secondary);max-width:460px;margin:0 auto;">Specialized container and NVOCC services powering your global operations.</p>
+    </div>
+
+    <div class="equip-grid">
+      <div class="equip-card reveal">
+        <div class="equip-visual">
+          <img src="assets/images/banner/dry-container-depot.jpeg" alt="Dry container depot" loading="lazy" />
+        </div>
+        <h3>Dry Container Depot</h3>
+        <p>Secure storage and handling for dry containers at strategically located depot facilities.</p>
+      </div>
+      <div class="equip-card reveal">
+        <div class="equip-visual">
+          <img src="assets/images/banner/reefer-container-depot.jpeg" alt="Reefer container depot" loading="lazy" />
+        </div>
+        <h3>Reefer Container Depot</h3>
+        <p>Specialized refrigerated container facilities ensuring optimal conditions for temperature-sensitive cargo.</p>
+      </div>
+      <div class="equip-card reveal">
+        <div class="equip-visual">
+          <img src="assets/images/banner/container-leasing.jpeg" alt="Container leasing" loading="lazy" />
+        </div>
+        <h3>Container Leasing</h3>
+        <p>Flexible and affordable container leasing options tailored to your logistics requirements.</p>
+      </div>
+      <div class="equip-card reveal">
+        <div class="equip-visual">
+          <img src="assets/images/banner/transloading-services.jpeg" alt="Transloading services" loading="lazy" />
+        </div>
+        <h3>Transloading Services</h3>
+        <p>Streamlined cargo transfer between different modes of transportation with minimal downtime.</p>
+      </div>
+      <div class="equip-card reveal">
+        <div class="equip-visual">
+          <img src="assets/images/banner/SOC-container.jpeg" alt="SOC container" loading="lazy" />
+        </div>
+        <h3>SOC Container</h3>
+        <p>Shipper-Owned Container support for cost-effective, customizable shipping solutions.</p>
+      </div>
+      <div class="equip-card reveal">
+        <div class="equip-visual">
+          <img src="assets/images/banner/NVOCC-agency.jpeg" alt="NVOCC agency" loading="lazy" />
+        </div>
+        <h3>NVOCC Agency</h3>
+        <p>Comprehensive Non-Vessel Operating Common Carrier services for global shipping operations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PARTNERS ===== -->
+<section id="partners">
+  <div class="container">
+    <div class="partners-top">
+      <p>Our trusted shipping line partners</p>
+    </div>
+  </div>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <!-- Added the user's new partner images -->
+      <div class="partner-logo"><img src="assets/images/company/one.png" alt="ONE" /></div>
+      <div class="partner-logo"><img src="assets/images/company/maersk.png" alt="Maersk" /></div>
+      <div class="partner-logo"><img src="assets/images/company/cosco.png" alt="COSCO" /></div>
+      <div class="partner-logo"><img src="assets/images/company/pil.png" alt="PIL" /></div>
+      <div class="partner-logo"><img src="assets/images/company/apl.gif" alt="APL" /></div>
+      <div class="partner-logo"><img src="assets/images/company/cmacgm.jpg" alt="CMA CGM" /></div>
+      <div class="partner-logo"><img src="assets/images/company/hapag-lloyd-cruises_logo.jpg" alt="Hapag-Lloyd" /></div>
+      <div class="partner-logo"><img src="assets/images/company/yangming.jpg" alt="Yang Ming" /></div>
+      <!-- Duplicate for infinite scroll -->
+      <div class="partner-logo"><img src="assets/images/company/one.png" alt="ONE" /></div>
+      <div class="partner-logo"><img src="assets/images/company/maersk.png" alt="Maersk" /></div>
+      <div class="partner-logo"><img src="assets/images/company/cosco.png" alt="COSCO" /></div>
+      <div class="partner-logo"><img src="assets/images/company/pil.png" alt="PIL" /></div>
+      <div class="partner-logo"><img src="assets/images/company/apl.gif" alt="APL" /></div>
+      <div class="partner-logo"><img src="assets/images/company/cmacgm.jpg" alt="CMA CGM" /></div>
+      <div class="partner-logo"><img src="assets/images/company/hapag-lloyd-cruises_logo.jpg" alt="Hapag-Lloyd" /></div>
+      <div class="partner-logo"><img src="assets/images/company/yangming.jpg" alt="Yang Ming" /></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="cert-row">
+      <!-- Added the user's new cert images -->
+      <img class="cert-img" src="assets/images/company/028736_FCM_BOND.png" alt="FCM BOND 028736" />
+      <img class="cert-img" src="assets/images/company/96652_WCA.png" alt="WCA 96652" />
+      <img class="cert-img" src="assets/images/company/53710348_FM.png" alt="FM 53710348" />
+      <img class="cert-img" src="assets/images/company/110225_JC.png" alt="JC 110225" />
+      <img class="cert-img" src="assets/images/company/AWS.png" alt="AWS Certified" />
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-inner">
+      <h2 class="reveal">One of Vietnam's <em>Leading</em><br/>Logistics Companies</h2>
+      <p class="reveal">Logistics service providers play a pivotal role in the global supply chain. Let us be your trusted partner.</p>
+      <div class="cta-btns reveal">
+        <a href="#contact" class="btn-white">
+          Book Your Shipment
+          <span class="btn-white-icon">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M6.5 2l4.5 4.5L6.5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+        <a href="tel:+842432222131" class="btn-ghost-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +84 243 222 2131
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-tag reveal">Get In Touch</div>
+        <h2 class="reveal">Let's Move Your<br/>Cargo Together</h2>
+        <p class="reveal">Our team is ready with tailored logistics solutions. We respond within one business day.</p>
+
+        <div class="contact-items">
+          <div class="contact-item reveal">
+            <div class="ci-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Address</div>
+              <span class="ci-val">No. 19, Ha Dinh Lakeside Road, Ha Dinh Ward, Thanh Xuan District, Hanoi 10000, Vietnam</span>
+            </div>
+          </div>
+          <div class="contact-item reveal">
+            <div class="ci-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Email</div>
+              <div class="ci-val"><a href="mailto:info@cargotrans.vn">info@cargotrans.vn</a></div>
+            </div>
+          </div>
+          <div class="contact-item reveal">
+            <div class="ci-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Phone</div>
+              <div class="ci-val"><a href="tel:+842432222131">+84 243 222 2131</a></div>
+            </div>
+          </div>
+          <div class="contact-item reveal">
+            <div class="ci-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Opening Hours</div>
+              <span class="ci-val">Monday – Saturday: 8:00 AM – 6:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-card reveal">
+        <h3>Get a Free Quote</h3>
+        <form id="contact-form" onsubmit="handleForm(event)">
+          <div class="fg">
+            <label for="f-name">Name</label>
+            <input type="text" id="f-name" placeholder="Your full name" required />
+          </div>
+          <div class="fg">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" placeholder="your@email.com" required />
+          </div>
+          <div class="fg">
+            <label for="f-msg">Message</label>
+            <textarea id="f-msg" placeholder="Tell us about your shipment needs..."></textarea>
+          </div>
+          <button type="submit" class="btn-navy" id="submit-btn">
+            Send Message
+            <span class="btn-icon">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+        </form>
+
+        <div class="quote-bar">
+          <p>Want a quick quote? Leave your email.</p>
+          <form class="quote-bar-form" onsubmit="handleQuick(event)">
+            <input type="email" placeholder="your@email.com" required />
+            <button type="submit">Get Quote</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-row">
+          <img src="assets/images/Cargotrans-white.png" alt="Cargotrans" style="height: 36px; width: auto;" />
+        </div>
+        <p>Reliable Global Logistics Solutions. Connecting Vietnam to the world since 2014.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=100043278447053" target="_blank" rel="noopener noreferrer" title="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#transport">Services</a></li>
+          <li><a href="#equipment">Equipment</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="#transport">Air Transport</a></li>
+          <li><a href="#transport">Ocean Freight</a></li>
+          <li><a href="#transport">Customs Broker</a></li>
+          <li><a href="#transport">Trucking</a></li>
+          <li><a href="#transport">Warehousing</a></li>
+          <li><a href="#transport">Door to Door</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Cargotrans Co., Ltd. All Rights Reserved.</p>
+      <nav class="footer-meta">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="https://cargotrans.vn" target="_blank" rel="noopener">cargotrans.vn</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================================================
+     GSAP SCRIPTS
+=================================================== -->
+<script>
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+  const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- INIT ON LOAD ---- */
+  window.addEventListener('load', () => {
+    if (noMotion) {
+      document.getElementById('preloader').style.display = 'none';
+      document.body.classList.remove('loading');
+      initAnimations();
+    } else {
+      const ptl = gsap.timeline({
+        onComplete: () => {
+          document.getElementById('preloader').style.display = 'none';
+          document.body.classList.remove('loading');
+          initAnimations();
+        }
+      });
+      // Minimal delay to let CSS animations finish if they load super fast
+      ptl.to('.preloader-text span', {
+        y: -50, opacity: 0, stagger: 0.04, duration: 0.6, ease: 'power3.in'
+      }, '+=0.6')
+      .to('.preloader-bar', { opacity: 0, duration: 0.4 }, '<')
+      .to('#preloader', { yPercent: -100, duration: 0.9, ease: 'power4.inOut' }, '-=0.2');
+    }
+  });
+
+  function initAnimations() {
+    /* ---- PROGRESS BAR ---- */
+    if (!noMotion) {
+      gsap.to('#progress-bar', {
+        width: '100%', ease: 'none',
+        scrollTrigger: { start: 'top top', end: 'bottom bottom', scrub: 0.5 }
+      });
+    }
+
+    /* ---- HERO ENTRANCE ---- */
+    if (!noMotion) {
+      const htl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+      htl
+        .to('#hbadge',  { opacity: 1, y: 0, duration: 0.85 })
+        .to('#hh1',     { opacity: 1, y: 0, duration: 1.0  }, '-=0.65')
+        .to('#hsub',    { opacity: 1, y: 0, duration: 0.85 }, '-=0.75')
+        .to('#hbtns',   { opacity: 1, y: 0, duration: 0.75 }, '-=0.65')
+        .to('#hstats',  { opacity: 1, y: 0, duration: 0.75 }, '-=0.6')
+        .to('#hvisual', { opacity: 1, y: 0, scale: 1, duration: 1.1, ease: 'power3.out' }, '-=0.9');
+    } else {
+      gsap.set(['#hbadge','#hh1','#hsub','#hbtns','#hstats','#hvisual'], { opacity: 1, y: 0, scale: 1 });
+    }
+
+    /* ---- HERO PARALLAX ---- */
+    if (!noMotion) {
+      gsap.to('#hvisual', {
+        y: -60, ease: 'none',
+        scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true }
+      });
+      /* Floating badges bob */
+      gsap.to('.hero-float-badge', {
+        y: -8, duration: 2.5, repeat: -1, yoyo: true, ease: 'sine.inOut', stagger: 0.8
+      });
+    }
+
+    /* ---- SCROLL REVEALS (with IntersectionObserver fallback for fast scroll) ---- */
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+    const ioReveal = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          ioReveal.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => {
+      if (!noMotion) {
+        ioReveal.observe(el);
+        // Also register GSAP ScrollTrigger for smooth animation
+        gsap.to(el, {
+          opacity: 1, y: 0, x: 0, duration: 0.85, ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el, start: 'top 100%', end: 'top 60%',
+            toggleActions: 'play none none none',
+            onEnter: () => el.classList.add('is-visible')
+          }
+        });
+      } else {
+        el.classList.add('is-visible');
+      }
+    });
+
+    /* ---- TRANSPORT CARDS (ensure visible immediately if in view on load) ---- */
+    const checkVisible = (el) => {
+      const rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight;
+    };
+
+    document.querySelectorAll('.transport-card').forEach((el, i) => {
+      if (noMotion || checkVisible(el)) {
+        gsap.set(el, { opacity: 1, y: 0 });
+      } else {
+        gsap.from(el, {
+          opacity: 0, y: 60, duration: 0.85, ease: 'power3.out',
+          delay: i * 0.08,
+          scrollTrigger: { trigger: el, start: 'top 100%', toggleActions: 'play none none none' }
+        });
+      }
+    });
+
+    /* ---- WHY CARDS ---- */
+    document.querySelectorAll('.why-card').forEach((el, i) => {
+      if (noMotion || checkVisible(el)) {
+        gsap.set(el, { opacity: 1, y: 0 });
+      } else {
+        gsap.from(el, {
+          opacity: 0, y: 50, duration: 0.8, ease: 'power3.out',
+          delay: i * 0.08,
+          scrollTrigger: { trigger: el, start: 'top 100%', toggleActions: 'play none none none' }
+        });
+      }
+    });
+
+    /* ---- EQUIP CARDS ---- */
+    document.querySelectorAll('.equip-card').forEach((el, i) => {
+      if (noMotion || checkVisible(el)) {
+        gsap.set(el, { opacity: 1, y: 0 });
+      } else {
+        gsap.from(el, {
+          opacity: 0, y: 50, duration: 0.75, ease: 'power3.out',
+          delay: i * 0.07,
+          scrollTrigger: { trigger: el, start: 'top 100%', toggleActions: 'play none none none' }
+        });
+      }
+    });
+
+    /* ---- ABOUT STRENGTHS: Animated checkmarks on scroll ---- */
+    const strengthsList = document.getElementById('strengths-list');
+    const stEls = document.querySelectorAll('.strength-item');
+    if (strengthsList && stEls.length > 0) {
+      if (noMotion) {
+        stEls.forEach(item => item.classList.add('checked'));
+      } else {
+        ScrollTrigger.create({
+          trigger: strengthsList,
+          start: 'top 95%',
+          once: true,
+          onEnter: () => {
+            stEls.forEach((item, i) => {
+              setTimeout(() => item.classList.add('checked'), i * 150);
+            });
+          }
+        });
+      }
+    }
+
+    /* ---- HERO GRID FLOAT ---- */
+    if (!noMotion) {
+      gsap.to('.hero-grid', {
+        backgroundPosition: '80px 80px', duration: 8, repeat: -1, ease: 'none'
+      });
+    }
+
+    /* ---- NAV SCROLL ---- */
+    ScrollTrigger.create({
+      start: 'top -60',
+      onUpdate: self => {
+        document.getElementById('navbar').style.top = self.progress > 0 ? '0.4rem' : '1rem';
+      }
+    });
+
+    /* ---- COUNTERS ---- */
+    document.querySelectorAll('.counter').forEach(el => {
+      const target = parseInt(el.dataset.target, 10);
+      ScrollTrigger.create({
+        trigger: el, start: 'top 100%', once: true,
+        onEnter: () => {
+          gsap.to({ v: 0 }, {
+            v: target, duration: 2, ease: 'power2.out',
+            onUpdate: function () {
+              el.textContent = Math.round(this.targets()[0].v).toLocaleString();
+            }
+          });
+        }
+      });
+    });
+
+    /* ---- SMOOTH ANCHOR SCROLL ---- */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) {
+          e.preventDefault();
+          gsap.to(window, { scrollTo: { y: t, offsetY: 88 }, duration: 1.1, ease: 'power3.inOut' });
+        }
+      });
+    });
+  } // end initAnimations()
+
+  /* ---- MOBILE MENU ---- */
+  let open = false;
+  function closeMobile() {
+    open = false;
+    document.getElementById('mobile-overlay').classList.remove('open');
+    document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+    const s = document.querySelectorAll('.hamburger span');
+    s[0].style.transform = s[1].style.transform = 'none';
+  }
+  document.getElementById('hamburger').addEventListener('click', () => {
+    open = !open;
+    document.getElementById('mobile-overlay').classList.toggle('open', open);
+    document.getElementById('hamburger').setAttribute('aria-expanded', open);
+    const s = document.querySelectorAll('.hamburger span');
+    if (open) {
+      s[0].style.transform = 'rotate(45deg) translate(4px, 3.5px)';
+      s[1].style.transform = 'rotate(-45deg) translate(4px, -3.5px)';
+    } else { s[0].style.transform = s[1].style.transform = 'none'; }
+  });
+
+  /* ---- FORMS ---- */
+  function handleForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    btn.textContent = 'Sending…';
+    setTimeout(() => {
+      btn.innerHTML = 'Message Sent ✓';
+      btn.style.background = '#2d7a3a';
+      setTimeout(() => {
+        btn.innerHTML = 'Send Message <span class="btn-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+        btn.style.background = '';
+        e.target.reset();
+      }, 3000);
+    }, 1500);
+  }
+  function handleQuick(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = 'Sent ✓';
+    setTimeout(() => { btn.textContent = 'Get Quote'; e.target.reset(); }, 3000);
+  }
+</script>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+<script type="module">
+  import createGlobe from 'https://esm.sh/cobe';
+  
+  // Cobe Globe for Global Reach card - richer, more detailed
+  let phi = 0;
+  const canvas = document.getElementById('cobe-canvas');
+  if (canvas) {
+    createGlobe(canvas, {
+      devicePixelRatio: 2,
+      width: 260 * 2,
+      height: 260 * 2,
+      phi: 0,
+      theta: 0.25,
+      dark: 1,
+      diffuse: 2.0,
+      mapSamples: 24000,
+      mapBrightness: 9,
+      mapBaseBrightness: 0.05,
+      baseColor: [0.05, 0.1, 0.2],
+      markerColor: [0.8, 0.65, 0.32],
+      glowColor: [0.15, 0.25, 0.45],
+      offset: [0, 0],
+      scale: 1,
+      markers: [
+        { location: [21.0285, 105.8542], size: 0.1  },  // Hanoi
+        { location: [10.8231, 106.6297], size: 0.07 },  // HCMC
+        { location: [40.7128, -74.006 ], size: 0.06 },  // New York
+        { location: [51.5074, -0.1278 ], size: 0.06 },  // London
+        { location: [35.6762, 139.6503], size: 0.06 },  // Tokyo
+        { location: [22.3193, 114.1694], size: 0.07 },  // Hong Kong
+        { location: [1.3521,  103.8198], size: 0.06 },  // Singapore
+        { location: [-33.868, 151.2093], size: 0.05 },  // Sydney
+        { location: [48.8566, 2.3522  ], size: 0.05 },  // Paris
+        { location: [52.52,   13.405  ], size: 0.05 },  // Berlin
+      ],
+      onRender: (state) => {
+        state.phi = phi;
+        phi += 0.004;
+      }
+    });
+  }
+
+  // Vanta Globe for Hero - high contrast, clear globe shape
+  window.addEventListener('load', () => {
+    if (window.VANTA && document.getElementById('hero-vanta')) {
+      VANTA.GLOBE({
+        el: '#hero-vanta',
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200,
+        minWidth: 200,
+        scale: 1.0,
+        scaleMobile: 1.0,
+        color: 0xc8a553,      // Gold connection lines
+        color2: 0x8ab4f8,     // Light blue globe dots
+        backgroundColor: 0x0d1b2e,
+        size: 1.5,            // Larger globe = more visible
+        points: 12,           // Denser network
+        maxDistance: 22,
+        spacing: 16
+      });
+    }
+  });
+</script>
+</body>
+</html>
