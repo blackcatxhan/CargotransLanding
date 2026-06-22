@@ -5,7 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cargotrans Co., Ltd. | Freight Forwarding & Logistics Solutions</title>
   <meta name="description" content="Cargotrans Co., Ltd. - Specializes in logistics services, sea and air transportation, and customs declaration. Safety, speed and optimal cost. Contact now!" />
+  <meta name="keywords" content="logistics Vietnam, freight forwarding, sea freight, air freight, customs clearance, cargo shipping, door to door delivery, NVOCC, container shipping, warehousing Vietnam" />
+  <meta name="author" content="Cargotrans Co., Ltd." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://cargotrans.vn" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cargotrans.vn" />
+  <meta property="og:title" content="Cargotrans Co., Ltd. | Reliable Global Logistics Solutions" />
+  <meta property="og:description" content="Leading freight forwarding and logistics company in Vietnam. Specializing in sea freight, air freight, customs clearance, and door-to-door delivery. Trusted by 1,688+ clients since 2014." />
+  <meta property="og:image" content="https://cargotrans.vn/assets/images/hero_logistics_world.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Cargotrans" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://cargotrans.vn" />
+  <meta name="twitter:title" content="Cargotrans Co., Ltd. | Reliable Global Logistics Solutions" />
+  <meta name="twitter:description" content="Leading freight forwarding and logistics company in Vietnam. Specializing in sea freight, air freight, customs clearance, and door-to-door delivery." />
+  <meta name="twitter:image" content="https://cargotrans.vn/assets/images/hero_logistics_world.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
@@ -70,14 +90,16 @@
   --shadow-xl: 0 40px 100px rgba(1,0,74,0.2);
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   font-family: var(--font-b);
   background: var(--white);
   color: var(--text-primary);
   overflow-x: hidden;
   line-height: 1.6;
+  max-width: 100vw;
 }
+img { max-width: 100%; height: auto; }
 ::selection { background: var(--navy); color: var(--white); }
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--gray-50); }
@@ -86,7 +108,7 @@ body {
 /* ====================================================
    UTILITIES
 ==================================================== */
-.container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; width: 100%; box-sizing: border-box; }
 
 .section-tag {
   display: inline-flex; align-items: center; gap: 0.5rem;
@@ -133,6 +155,9 @@ body {
   border: 1px solid rgba(1,0,74,0.1);
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-md), 0 1px 0 rgba(255,255,255,0.8) inset;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .nav-logo {
@@ -215,6 +240,7 @@ body {
   position: relative; min-height: 100dvh;
   background: url('assets/images/hero_logistics_world.png') center/cover no-repeat;
   overflow: hidden; display: flex; align-items: center;
+  width: 100%;
 }
 #hero::after {
   content: ''; position: absolute; inset: 0; z-index: 1;
@@ -377,6 +403,8 @@ body {
   padding: 6rem 0;
   background: var(--gray-50);
   border-top: 1px solid var(--gray-100);
+  overflow: hidden;
+  width: 100%;
 }
 
 .transport-header { text-align: center; margin-bottom: 4rem; }
@@ -450,6 +478,8 @@ body {
 #about {
   padding: 7rem 0;
   background: var(--white);
+  overflow: hidden;
+  width: 100%;
 }
 
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
@@ -518,6 +548,10 @@ body {
   border: 2px solid var(--gold); color: var(--gold);
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-d); font-weight: 800; font-size: 1.2rem;
+  overflow: hidden;
+}
+.cp-avatar img {
+  width: 100%; height: 100%; object-fit: cover;
 }
 .cp-info { flex: 1; }
 .cp-name { font-weight: 700; font-size: 0.9rem; color: var(--navy); }
@@ -539,6 +573,7 @@ body {
   padding: 7rem 0;
   background: var(--navy);
   position: relative; overflow: hidden;
+  width: 100%;
 }
 
 /* Animated globe bg */
@@ -622,6 +657,8 @@ body {
 #equipment {
   padding: 7rem 0;
   background: var(--gray-50);
+  overflow: hidden;
+  width: 100%;
 }
 
 .equip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3.5rem; }
@@ -659,6 +696,7 @@ body {
 ==================================================== */
 #logistic-visual {
   position: relative; height: 520px; overflow: hidden;
+  width: 100%;
 }
 .lv-img {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
@@ -691,6 +729,8 @@ body {
   background: var(--white);
   border-top: 1px solid var(--gray-100);
   border-bottom: 1px solid var(--gray-100);
+  overflow: hidden;
+  width: 100%;
 }
 
 .partners-top { text-align: center; margin-bottom: 2.5rem; }
@@ -698,32 +738,36 @@ body {
 
 .marquee-wrap {
   overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
   margin-bottom: 3.5rem;
+  width: 100%;
+  position: relative;
 }
 .marquee-track {
-  display: flex; gap: 2.5rem; width: max-content; align-items: center;
-  animation: marquee 32s linear infinite;
+  display: flex; gap: 3.5rem; width: max-content; align-items: center;
+  animation: marquee 40s linear infinite;
+  will-change: transform;
 }
 @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
 
 .partner-logo {
-  height: 55px; display: flex; align-items: center; justify-content: center;
-  background: var(--white); border-radius: var(--radius-sm);
-  padding: 0.5rem 1rem; border: 1px solid var(--gray-100);
+  height: 80px; display: flex; align-items: center; justify-content: center;
+  background: var(--white); border-radius: var(--radius-md);
+  padding: 1rem 1.5rem; border: 1px solid var(--gray-100);
   box-shadow: var(--shadow-sm);
-  filter: opacity(0.85); transition: all 0.4s var(--ease-expo);
+  filter: opacity(0.9); transition: all 0.4s var(--ease-expo);
+  min-width: 140px; flex-shrink: 0;
 }
-.partner-logo:hover { filter: opacity(1); transform: translateY(-3px); box-shadow: var(--shadow-md); }
-.partner-logo img { max-height: 36px; max-width: 120px; object-fit: contain; }
+.partner-logo:hover { filter: opacity(1); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.partner-logo img { max-height: 52px; max-width: 160px; object-fit: contain; width: auto; }
 
 .cert-row {
-  display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
+  display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap;
 }
-.cert-img { height: 48px; filter: opacity(0.85); transition: all 0.3s; }
-.cert-img:hover { filter: opacity(1); transform: translateY(-3px); }
+.cert-img { height: 100px; filter: opacity(0.9); transition: all 0.3s; }
+.cert-img:hover { filter: opacity(1); transform: translateY(-4px); }
 
 /* ====================================================
    CONTACT
@@ -731,6 +775,8 @@ body {
 #contact {
   padding: 7rem 0;
   background: var(--gray-50);
+  overflow: hidden;
+  width: 100%;
 }
 
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
@@ -824,9 +870,10 @@ body {
 /* ====================================================
    CTA SECTION
 ==================================================== */
-#cta { 
-  padding: 6rem 0; position: relative; overflow: hidden; 
-  background: url('assets/images/hero_logistics_world.png') center/cover no-repeat fixed; 
+#cta {
+  padding: 6rem 0; position: relative; overflow: hidden;
+  background: url('assets/images/hero_logistics_world.png') center/cover no-repeat fixed;
+  width: 100%;
 }
 #cta::before {
   content: ''; position: absolute; inset: 0; z-index: 0;
@@ -848,6 +895,8 @@ footer {
   padding: 3.5rem 0 2rem; position: relative;
   background: url('assets/images/hero_logistics_world.png') bottom/cover no-repeat;
   border-top: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+  width: 100%;
 }
 footer::before {
   content: ''; position: absolute; inset: 0; z-index: 0;
@@ -889,7 +938,7 @@ footer .container { position: relative; z-index: 1; }
   .hero-visual { display: none; }
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
   .about-visual { max-width: 560px; margin: 0 auto; }
-  
+
   /* Reset Why Grid for Tablet */
   .why-card.feature { grid-column: span 12; }
   .why-card.c5, .why-card.c7 { grid-column: span 6; }
@@ -897,11 +946,15 @@ footer .container { position: relative; z-index: 1; }
   .why-card.c4 { grid-column: span 6; }
   .why-card.c6 { grid-column: span 6; }
   .why-card.c8 { grid-column: span 12; }
-  
+
   .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
   .transport-cards { grid-template-columns: 1fr 1fr; }
   .equip-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+
+  /* Partner logos - adjust for tablet */
+  .partner-logo { height: 70px; min-width: 120px; padding: 0.8rem 1.2rem; }
+  .partner-logo img { max-height: 45px; max-width: 140px; }
 }
 
 @media (max-width: 768px) {
@@ -914,17 +967,97 @@ footer .container { position: relative; z-index: 1; }
   .hero-stat { padding: 0.5rem 0.9rem; }
   .transport-cards { grid-template-columns: 1fr; }
   .equip-grid { grid-template-columns: 1fr; }
-  
+
   /* Reset Why Grid for Mobile */
   .why-card.feature, .why-card.c5, .why-card.c7,
   .why-card.c4, .why-card.c3, .why-card.c6, .why-card.c8,
   .why-clients { grid-column: span 12; }
-  
+
   .lv-stats { flex-direction: column; gap: 1.5rem; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
   .about-float { display: none; }
   .quote-bar { flex-direction: column; }
+
+  /* Partner logos - optimize for mobile */
+  .partner-logo { height: 65px; min-width: 110px; padding: 0.7rem 1rem; }
+  .partner-logo img { max-height: 40px; max-width: 130px; }
+  .marquee-track { gap: 2.5rem; }
+
+  /* Ensure touch-friendly buttons */
+  .btn-white, .btn-navy, .btn-ghost-white {
+    min-height: 44px; padding: 0.9rem 1.5rem;
+  }
+  .nav-cta, .cp-link { min-width: 44px; min-height: 44px; }
+
+  /* Mobile form improvements */
+  .fg input, .fg textarea { font-size: 16px; padding: 0.85rem 1rem; }
+  .quote-bar-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    min-width: auto;
+  }
+  .quote-bar-form input {
+    font-size: 16px;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    border-radius: var(--radius-pill);
+    border-right: 1.5px solid var(--gray-100);
+  }
+  .quote-bar-form button {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+    width: 100%;
+    border-radius: var(--radius-pill);
+  }
+  .quote-bar { padding: 1.25rem; gap: 1rem; }
+  .quote-bar p { font-size: 0.82rem; text-align: center; }
+
+  /* Contact form card mobile */
+  .contact-form-card { padding: 1.5rem; }
+  .contact-form-card h3 { font-size: 1.15rem; margin-bottom: 1.5rem; }
+
+  /* Get In Touch section mobile improvements */
+  .contact-info h2 { font-size: clamp(1.6rem, 6vw, 2.2rem); margin-bottom: 0.85rem; }
+  .contact-info > p { font-size: 0.88rem; margin-bottom: 2rem; }
+  .contact-items { gap: 1rem; }
+  .contact-item { gap: 0.85rem; }
+  .ci-icon { width: 38px; height: 38px; }
+  .ci-label { font-size: 0.65rem; margin-bottom: 0.15rem; }
+  .ci-val, .ci-val a { font-size: 0.85rem; line-height: 1.5; }
+
+  /* Mobile typography adjustments */
+  .cta-inner h2 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+  .lv-content h2 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .container { padding: 0 1rem; }
+  .hero-btns { flex-direction: column; width: 100%; }
+  .btn-white, .btn-ghost-white { width: 100%; justify-content: center; }
+
+  /* Stack hero stats vertically on very small screens */
+  .hero-stats { flex-direction: column; width: 100%; gap: 0.75rem; }
+  .hero-stat { width: 100%; justify-content: center; }
+
+  /* Partner logos - smallest screens */
+  .partner-logo { height: 60px; min-width: 100px; padding: 0.6rem 0.9rem; }
+  .partner-logo img { max-height: 36px; max-width: 120px; }
+  .marquee-track { gap: 2rem; }
+
+  /* Mobile navigation adjustments */
+  .mobile-nav-links a { font-size: 1.8rem; }
+
+  /* Contact items stack better */
+  .contact-item { flex-direction: column; align-items: flex-start; text-align: left; }
+  .ci-icon { margin-bottom: 0.5rem; }
+
+  /* CTA buttons stack */
+  .cta-btns { flex-direction: column; width: 100%; }
+  .cta-btns a { width: 100%; justify-content: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -939,6 +1072,14 @@ footer .container { position: relative; z-index: 1; }
   position: fixed; inset: 0; z-index: 9999;
   background: var(--navy); display: flex; flex-direction: column;
   align-items: center; justify-content: center;
+}
+.preloader-logo {
+  height: 200px; width: auto; margin-bottom: 1.5rem;
+  opacity: 0; animation: fade-in 0.6s ease-out forwards;
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .preloader-text {
   font-family: var(--font-d); font-size: 2.5rem; font-weight: 900;
@@ -978,12 +1119,63 @@ footer .container { position: relative; z-index: 1; }
   100% { width: 100%; }
 }
 body.loading { overflow: hidden; height: 100vh; }
+
+/* ====================================================
+   SCROLL TO TOP BUTTON
+==================================================== */
+#scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s var(--ease-expo);
+  z-index: 100;
+  box-shadow: var(--shadow-lg);
+}
+#scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+#scroll-to-top:hover {
+  background: var(--navy-mid);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+#scroll-to-top svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  #scroll-to-top {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 44px;
+    height: 44px;
+  }
+  #scroll-to-top svg {
+    width: 18px;
+    height: 18px;
+  }
+}
 </style>
 </head>
 <body class="loading">
 
 <!-- Preloader -->
 <div id="preloader">
+  <img src="assets/images/logo-loading.png" alt="Cargotrans" class="preloader-logo" />
   <div class="preloader-text">
     <span>C</span><span>A</span><span>R</span><span>G</span><span>O</span><span>T</span><span>R</span><span>A</span><span>N</span><span>S</span>
   </div>
@@ -1001,7 +1193,7 @@ body.loading { overflow: hidden; height: 100vh; }
     <li><a href="#transport" onclick="closeMobile()">Services</a></li>
     <li><a href="#contact" onclick="closeMobile()">Contact</a></li>
   </ul>
-  <a href="#contact" class="btn-navy" style="width:220px;text-align:center;" onclick="closeMobile()">Get a Free Quote</a>
+  <a href="mailto:mary@cargotrans.vn?subject=Request%20for%20Quote&body=Hello%20Mary%2C%0A%0AI%20would%20like%20to%20request%20a%20quote%20for%20logistics%20services.%0A%0ADetails%3A%0A-%20Cargo%20type%3A%20%0A-%20Origin%3A%20%0A-%20Destination%3A%20%0A-%20Volume%2FWeight%3A%20%0A-%20Preferred%20shipping%20method%3A%20%0A%0AThank%20you." class="btn-navy" style="width:220px;text-align:center;" onclick="closeMobile()">Get a Free Quote</a>
 </div>
 
 <!-- NAV -->
@@ -1019,7 +1211,7 @@ body.loading { overflow: hidden; height: 100vh; }
       <li><a href="#contact">Contact</a></li>
     </ul>
 
-    <a href="#contact" class="nav-cta">
+    <a href="mailto:mary@cargotrans.vn?subject=Request%20for%20Quote&body=Hello%20Mary%2C%0A%0AI%20would%20like%20to%20request%20a%20quote%20for%20logistics%20services.%0A%0ADetails%3A%0A-%20Cargo%20type%3A%20%0A-%20Origin%3A%20%0A-%20Destination%3A%20%0A-%20Volume%2FWeight%3A%20%0A-%20Preferred%20shipping%20method%3A%20%0A%0AThank%20you." class="nav-cta">
       Get a Quote
       <span class="nav-cta-icon">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1059,7 +1251,7 @@ body.loading { overflow: hidden; height: 100vh; }
         </p>
 
         <div class="hero-btns" id="hbtns">
-          <a href="#contact" class="btn-white">
+          <a href="mailto:mary@cargotrans.vn?subject=Shipment%20Booking%20Request&body=Hello%20Mary%2C%0A%0AI%20would%20like%20to%20book%20a%20shipment%20with%20Cargotrans.%0A%0AShipment%20Details%3A%0A-%20Cargo%20type%3A%20%0A-%20Origin%3A%20%0A-%20Destination%3A%20%0A-%20Volume%2FWeight%3A%20%0A-%20Preferred%20shipping%20method%3A%20%0A-%20Expected%20shipping%20date%3A%20%0A%0AThank%20you." class="btn-white">
             Book a Shipment
             <span class="btn-white-icon">
               <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M6.5 2l4.5 4.5L6.5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1262,7 +1454,9 @@ body.loading { overflow: hidden; height: 100vh; }
         </ul>
 
         <div class="contact-person-card reveal">
-          <div class="cp-avatar">M</div>
+          <div class="cp-avatar">
+            <img src="./assets/images/banner/mary_sales_manager.jpg" alt="Mary - Sales Manager" />
+          </div>
           <div class="cp-info">
             <div class="cp-name">Mary</div>
             <div class="cp-role">Sales Manager</div>
@@ -1436,23 +1630,32 @@ body.loading { overflow: hidden; height: 100vh; }
   <div class="marquee-wrap">
     <div class="marquee-track">
       <!-- Added the user's new partner images -->
-      <div class="partner-logo"><img src="assets/images/company/one.png" alt="ONE" /></div>
-      <div class="partner-logo"><img src="assets/images/company/maersk.png" alt="Maersk" /></div>
-      <div class="partner-logo"><img src="assets/images/company/cosco.png" alt="COSCO" /></div>
-      <div class="partner-logo"><img src="assets/images/company/pil.png" alt="PIL" /></div>
-      <div class="partner-logo"><img src="assets/images/company/apl.gif" alt="APL" /></div>
-      <div class="partner-logo"><img src="assets/images/company/cmacgm.jpg" alt="CMA CGM" /></div>
+      <div class="partner-logo"><img src="assets/images/company/one.png" alt="ONE Shipping Line" /></div>
+      <div class="partner-logo"><img src="assets/images/company/maersk.png" alt="Maersk Line" /></div>
+      <div class="partner-logo"><img src="assets/images/company/cosco.png" alt="COSCO Shipping" /></div>
+      <div class="partner-logo"><img src="assets/images/company/pil.png" alt="PIL Pacific International Lines" /></div>
+      <div class="partner-logo"><img src="assets/images/company/apl.gif" alt="APL Shipping" /></div>
+      <div class="partner-logo"><img src="assets/images/company/cmacgm.jpg" alt="CMA CGM Group" /></div>
       <div class="partner-logo"><img src="assets/images/company/hapag-lloyd-cruises_logo.jpg" alt="Hapag-Lloyd" /></div>
-      <div class="partner-logo"><img src="assets/images/company/yangming.jpg" alt="Yang Ming" /></div>
-      <!-- Duplicate for infinite scroll -->
-      <div class="partner-logo"><img src="assets/images/company/one.png" alt="ONE" /></div>
-      <div class="partner-logo"><img src="assets/images/company/maersk.png" alt="Maersk" /></div>
-      <div class="partner-logo"><img src="assets/images/company/cosco.png" alt="COSCO" /></div>
-      <div class="partner-logo"><img src="assets/images/company/pil.png" alt="PIL" /></div>
-      <div class="partner-logo"><img src="assets/images/company/apl.gif" alt="APL" /></div>
-      <div class="partner-logo"><img src="assets/images/company/cmacgm.jpg" alt="CMA CGM" /></div>
+      <div class="partner-logo"><img src="assets/images/company/yangming.jpg" alt="Yang Ming Marine Transport" /></div>
+      <!-- Duplicate set 1 for seamless infinite scroll -->
+      <div class="partner-logo"><img src="assets/images/company/one.png" alt="ONE Shipping Line" /></div>
+      <div class="partner-logo"><img src="assets/images/company/maersk.png" alt="Maersk Line" /></div>
+      <div class="partner-logo"><img src="assets/images/company/cosco.png" alt="COSCO Shipping" /></div>
+      <div class="partner-logo"><img src="assets/images/company/pil.png" alt="PIL Pacific International Lines" /></div>
+      <div class="partner-logo"><img src="assets/images/company/apl.gif" alt="APL Shipping" /></div>
+      <div class="partner-logo"><img src="assets/images/company/cmacgm.jpg" alt="CMA CGM Group" /></div>
       <div class="partner-logo"><img src="assets/images/company/hapag-lloyd-cruises_logo.jpg" alt="Hapag-Lloyd" /></div>
-      <div class="partner-logo"><img src="assets/images/company/yangming.jpg" alt="Yang Ming" /></div>
+      <div class="partner-logo"><img src="assets/images/company/yangming.jpg" alt="Yang Ming Marine Transport" /></div>
+      <!-- Duplicate set 2 for extra smooth looping -->
+      <div class="partner-logo"><img src="assets/images/company/one.png" alt="ONE Shipping Line" /></div>
+      <div class="partner-logo"><img src="assets/images/company/maersk.png" alt="Maersk Line" /></div>
+      <div class="partner-logo"><img src="assets/images/company/cosco.png" alt="COSCO Shipping" /></div>
+      <div class="partner-logo"><img src="assets/images/company/pil.png" alt="PIL Pacific International Lines" /></div>
+      <div class="partner-logo"><img src="assets/images/company/apl.gif" alt="APL Shipping" /></div>
+      <div class="partner-logo"><img src="assets/images/company/cmacgm.jpg" alt="CMA CGM Group" /></div>
+      <div class="partner-logo"><img src="assets/images/company/hapag-lloyd-cruises_logo.jpg" alt="Hapag-Lloyd" /></div>
+      <div class="partner-logo"><img src="assets/images/company/yangming.jpg" alt="Yang Ming Marine Transport" /></div>
     </div>
   </div>
   <div class="container">
@@ -1474,7 +1677,7 @@ body.loading { overflow: hidden; height: 100vh; }
       <h2 class="reveal">One of Vietnam's <em>Leading</em><br/>Logistics Companies</h2>
       <p class="reveal">Logistics service providers play a pivotal role in the global supply chain. Let us be your trusted partner.</p>
       <div class="cta-btns reveal">
-        <a href="#contact" class="btn-white">
+        <a href="mailto:mary@cargotrans.vn?subject=Shipment%20Booking%20Request&body=Hello%20Mary%2C%0A%0AI%20would%20like%20to%20book%20a%20shipment%20with%20Cargotrans.%0A%0AShipment%20Details%3A%0A-%20Cargo%20type%3A%20%0A-%20Origin%3A%20%0A-%20Destination%3A%20%0A-%20Volume%2FWeight%3A%20%0A-%20Preferred%20shipping%20method%3A%20%0A-%20Expected%20shipping%20date%3A%20%0A%0AThank%20you." class="btn-white">
           Book Your Shipment
           <span class="btn-white-icon">
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M6.5 2l4.5 4.5L6.5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1614,7 +1817,7 @@ body.loading { overflow: hidden; height: 100vh; }
     </div>
 
     <div class="footer-bottom">
-      <p class="footer-copy">© 2026 Cargotrans Co., Ltd. All Rights Reserved.</p>
+      <p class="footer-copy">© <span id="copyright-year"></span> Cargotrans Co., Ltd. All Rights Reserved.</p>
       <nav class="footer-meta">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
@@ -1849,24 +2052,77 @@ body.loading { overflow: hidden; height: 100vh; }
   /* ---- FORMS ---- */
   function handleForm(e) {
     e.preventDefault();
+    const name = document.getElementById('f-name').value;
+    const email = document.getElementById('f-email').value;
+    const message = document.getElementById('f-msg').value;
+
+    const subject = encodeURIComponent('Quote Request from ' + name);
+    const body = encodeURIComponent(
+      'Hello Mary,\n\n' +
+      'I would like to request a quote for logistics services.\n\n' +
+      'Contact Information:\n' +
+      '- Name: ' + name + '\n' +
+      '- Email: ' + email + '\n\n' +
+      'Message:\n' + message + '\n\n' +
+      'Thank you.'
+    );
+
+    window.location.href = 'mailto:mary@cargotrans.vn?subject=' + subject + '&body=' + body;
+
     const btn = document.getElementById('submit-btn');
-    btn.textContent = 'Sending…';
+    btn.textContent = 'Opening email...';
     setTimeout(() => {
-      btn.innerHTML = 'Message Sent ✓';
-      btn.style.background = '#2d7a3a';
-      setTimeout(() => {
-        btn.innerHTML = 'Send Message <span class="btn-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
-        btn.style.background = '';
-        e.target.reset();
-      }, 3000);
-    }, 1500);
+      btn.innerHTML = 'Send Message <span class="btn-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+      e.target.reset();
+    }, 2000);
   }
   function handleQuick(e) {
     e.preventDefault();
+    const emailInput = e.target.querySelector('input[type="email"]');
+    const email = emailInput.value;
+
+    const subject = encodeURIComponent('Quick Quote Request');
+    const body = encodeURIComponent(
+      'Hello Mary,\n\n' +
+      'I would like to request a quick quote for logistics services.\n\n' +
+      'My email: ' + email + '\n\n' +
+      'Please contact me with pricing information.\n\n' +
+      'Thank you.'
+    );
+
+    window.location.href = 'mailto:mary@cargotrans.vn?subject=' + subject + '&body=' + body;
+
     const btn = e.target.querySelector('button');
-    btn.textContent = 'Sent ✓';
-    setTimeout(() => { btn.textContent = 'Get Quote'; e.target.reset(); }, 3000);
+    btn.textContent = 'Opening email...';
+    setTimeout(() => { btn.textContent = 'Get Quote'; e.target.reset(); }, 2000);
   }
+
+  /* ---- COPYRIGHT YEAR ---- */
+  document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+  /* ---- SCROLL TO TOP BUTTON ---- */
+  document.addEventListener('DOMContentLoaded', () => {
+    const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+    if (scrollToTopBtn) {
+      // Show/hide button based on scroll position
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          scrollToTopBtn.classList.add('visible');
+        } else {
+          scrollToTopBtn.classList.remove('visible');
+        }
+      });
+
+      // Smooth scroll to top when clicked
+      scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+  });
 </script>
 
 <!-- Scripts -->
@@ -1937,5 +2193,13 @@ body.loading { overflow: hidden; height: 100vh; }
     }
   });
 </script>
+
+<!-- Scroll to Top Button -->
+<button id="scroll-to-top" aria-label="Scroll to top">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+</button>
+
 </body>
 </html>
