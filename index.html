@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cargotrans Co., Ltd. | Freight Forwarding & Logistics Solutions</title>
-  <meta name="description" content="Cargotrans Co., Ltd. - Specializes in logistics services, sea and air transportation, and customs declaration. Safety, speed and optimal cost. Contact now!" />
+  <title>Cargotrans Co., Ltd. | Reliable Global Logistics Solutions</title>
+  <meta name="description" content="Door-to-door logistics solutions in Vietnam. Ocean & air freight, customs clearance, warehousing. 99.2% on-time delivery. Get free quote now!" />
   <meta name="keywords" content="logistics Vietnam, freight forwarding, sea freight, air freight, customs clearance, cargo shipping, door to door delivery, NVOCC, container shipping, warehousing Vietnam" />
   <meta name="author" content="Cargotrans Co., Ltd." />
   <meta name="robots" content="index, follow" />
@@ -942,7 +942,7 @@ footer .container { position: relative; z-index: 1; }
   /* Reset Why Grid for Tablet */
   .why-card.feature { grid-column: span 12; }
   .why-card.c5, .why-card.c7 { grid-column: span 6; }
-  .why-clients { grid-column: span 6; }
+  .why-clients { grid-column: span 12; }
   .why-card.c4 { grid-column: span 6; }
   .why-card.c6 { grid-column: span 6; }
   .why-card.c8 { grid-column: span 12; }
@@ -963,8 +963,9 @@ footer .container { position: relative; z-index: 1; }
   .hamburger { display: flex; }
   .hero-inner { padding-top: 7rem; }
   .hero-h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
-  .hero-stats { gap: 0.75rem; }
-  .hero-stat { padding: 0.5rem 0.9rem; }
+  .hero-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+  .hero-stat { padding: 0.6rem 0.75rem; justify-content: center; }
+  .hero-stat > div { text-align: center; }
   .transport-cards { grid-template-columns: 1fr; }
   .equip-grid { grid-template-columns: 1fr; }
 
@@ -1040,7 +1041,7 @@ footer .container { position: relative; z-index: 1; }
   .btn-white, .btn-ghost-white { width: 100%; justify-content: center; }
 
   /* Stack hero stats vertically on very small screens */
-  .hero-stats { flex-direction: column; width: 100%; gap: 0.75rem; }
+  .hero-stats { grid-template-columns: 1fr; width: 100%; gap: 0.75rem; }
   .hero-stat { width: 100%; justify-content: center; }
 
   /* Partner logos - smallest screens */
@@ -1169,6 +1170,288 @@ body.loading { overflow: hidden; height: 100vh; }
     height: 18px;
   }
 }
+
+/* ====================================================
+   PROBLEMS WE SOLVE SECTION
+==================================================== */
+.problems-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+
+.problem-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--gray-100);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all 0.45s var(--ease-expo);
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.problem-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--navy), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-expo);
+}
+
+.problem-card:hover::before {
+  transform: scaleX(1);
+}
+
+.problem-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--navy-pale);
+}
+
+.problem-card-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.problem-card-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.4), transparent);
+}
+
+.problem-icon-wrap {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  margin: 0 auto 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.problem-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.problem-card h3 {
+  font-family: var(--font-d);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--white);
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.problem-card-body {
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.problem-risk-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy);
+  opacity: 0.6;
+  margin-bottom: 0.75rem;
+}
+
+.problem-pain-list {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  height: 200px;
+}
+
+.problem-pain-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.65rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.problem-pain-list li::before {
+  content: '✕';
+  position: absolute;
+  left: 0;
+  color: var(--navy);
+  opacity: 0.4;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.problem-solution-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy);
+  opacity: 0.6;
+  margin-bottom: 0.75rem;
+}
+
+.problem-solution {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.problem-solution::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent);
+}
+
+.problem-solution-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.problem-solution-list li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.65rem;
+  font-size: 0.87rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.65;
+}
+
+.problem-solution-list li:last-child { margin-bottom: 0; }
+
+.problem-solution-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+}
+
+.problem-solution-list li::after {
+  content: '✓';
+  position: absolute;
+  left: 5px;
+  top: 0.4rem;
+  color: var(--navy);
+  font-weight: bold;
+  font-size: 0.75rem;
+  z-index: 1;
+}
+
+.problem-solution-link {
+  font-size: 0.85rem;
+  margin-top: auto;
+  display: block;
+}
+
+.problem-solution-link a {
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.problem-solution-link a:hover {
+  color: var(--gold-light);
+}
+
+.problem-card-footer {
+  padding: 0 2rem 2rem;
+  margin-top: auto;
+  text-align: center;
+}
+
+.problem-result-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--navy);
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  font-family: var(--font-d);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--radius-pill);
+  transition: all 0.3s var(--ease-expo);
+  white-space: nowrap;
+}
+
+.problem-result-badge::before {
+  content: '⭐';
+  font-size: 0.9rem;
+}
+
+.problem-card:hover .problem-result-badge {
+  background: var(--gold);
+  color: var(--navy);
+  transform: scale(1.05);
+}
+
+/* Responsive - reuse transport-cards breakpoints */
+@media (max-width: 1024px) {
+  .problems-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .problems-grid {
+    grid-template-columns: 1fr;
+  }
+  .problem-card-header {
+    padding: 1.5rem;
+  }
+  .problem-card-body {
+    padding: 1.5rem;
+  }
+  .problem-card-footer {
+    padding: 0 1.5rem 1.5rem;
+  }
+}
 </style>
 </head>
 <body class="loading">
@@ -1242,17 +1525,17 @@ body.loading { overflow: hidden; height: 100vh; }
         </div>
 
         <h1 class="hero-h1" id="hh1">
-          Reliable <span class="accent">Global</span><br/>
-          <span class="outline">Logistics</span> Solutions
+          Safe, <span class="accent">On-Time</span>
+          <span class="outline">Export-Import.</span>
         </h1>
 
         <p class="hero-sub" id="hsub">
-          Cargotrans Co., Ltd. specializes in sea freight, air freight, customs clearance and door-to-door delivery - connecting Vietnam to the world.
+          Door-to-door freight forwarding and customs clearance solutions from warehouse to customer's door. We handle everything from sea freight, air freight and multi-modal transport, to final delivery – so you can focus on growing your business.
         </p>
 
         <div class="hero-btns" id="hbtns">
-          <a href="mailto:mary@cargotrans.vn?subject=Shipment%20Booking%20Request&body=Hello%20Mary%2C%0A%0AI%20would%20like%20to%20book%20a%20shipment%20with%20Cargotrans.%0A%0AShipment%20Details%3A%0A-%20Cargo%20type%3A%20%0A-%20Origin%3A%20%0A-%20Destination%3A%20%0A-%20Volume%2FWeight%3A%20%0A-%20Preferred%20shipping%20method%3A%20%0A-%20Expected%20shipping%20date%3A%20%0A%0AThank%20you." class="btn-white">
-            Book a Shipment
+          <a href="mailto:mary@cargotrans.vn?subject=Request%20for%20Quote&body=Hello%20Mary%2C%0A%0AI%20would%20like%20to%20request%20a%20quote%20for%20logistics%20services.%0A%0ADetails%3A%0A-%20Cargo%20type%3A%20%0A-%20Origin%3A%20%0A-%20Destination%3A%20%0A-%20Volume%2FWeight%3A%20%0A-%20Preferred%20shipping%20method%3A%20%0A%0AThank%20you." class="btn-white">
+            Get Free Quote Now
             <span class="btn-white-icon">
               <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M6.5 2l4.5 4.5L6.5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
@@ -1266,19 +1549,19 @@ body.loading { overflow: hidden; height: 100vh; }
           <div class="hero-stat">
             <div>
               <div class="hero-stat-val"><span class="counter" data-target="12">0</span><sup>+</sup></div>
-              <div class="hero-stat-label">Years</div>
+              <div class="hero-stat-label">Industry Experience</div>
             </div>
           </div>
           <div class="hero-stat">
             <div>
               <div class="hero-stat-val"><span class="counter" data-target="1688">0</span><sup>+</sup></div>
-              <div class="hero-stat-label">Clients</div>
+              <div class="hero-stat-label">Satisfied Clients</div>
             </div>
           </div>
           <div class="hero-stat">
             <div>
-              <div class="hero-stat-val"><span class="counter" data-target="541">0</span><sup>+</sup></div>
-              <div class="hero-stat-label">Staff</div>
+              <div class="hero-stat-val">99.2<sup>%</sup></div>
+              <div class="hero-stat-label">On-Time Delivery</div>
             </div>
           </div>
           <div class="hero-stat">
@@ -1326,12 +1609,113 @@ body.loading { overflow: hidden; height: 100vh; }
 
 </section>
 
+<!-- ===== PROBLEMS WE SOLVE ===== -->
+<section id="problems" style="padding: 7rem 0; background: var(--white);">
+  <div class="container">
+    <div class="section-tag reveal">Pain Points</div>
+    <h2 class="reveal" style="font-family: var(--font-d); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; color: var(--navy); letter-spacing: -0.03em; margin-bottom: 0.75rem; text-align: center;">3 Biggest Risks in Import-Export — Solved</h2>
+
+    <div class="problems-grid">
+      <!-- Problem 1: Lack of Communication -->
+      <div class="problem-card reveal">
+        <div class="problem-card-header">
+          <div class="problem-icon-wrap">
+            <div class="problem-icon">⚠️</div>
+          </div>
+          <h3>Lack of Communication</h3>
+        </div>
+        <div class="problem-card-body">
+          <div class="problem-risk-label">The Risk</div>
+          <ul class="problem-pain-list">
+            <li>Delayed shipment status updates from partners.</li>
+            <li>Insufficient follow-up leading to overlooked issues.</li>
+            <li>Poor information flow affecting delivery schedules.</li>
+            <li>Slow response to disruptions, increasing costs and customer impact.</li>
+          </ul>
+          <div class="problem-solution-label">How We Solve It</div>
+          <div class="problem-solution">
+            <ul class="problem-solution-list">
+              <li>End-to-end shipment monitoring.</li>
+              <li>Proactive and timely status updates.</li>
+              <li>Strong coordination among all parties.</li>
+              <li>Early alerts and fast issue resolution.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="problem-card-footer">
+          <div class="problem-result-badge">99.2% on-time or early delivery</div>
+        </div>
+      </div>
+
+      <!-- Problem 2: Complex Customs Procedures & Hidden Costs -->
+      <div class="problem-card reveal">
+        <div class="problem-card-header">
+          <div class="problem-icon-wrap">
+            <div class="problem-icon">📋</div>
+          </div>
+          <h3>Complex Customs Clearance Procedures & Hidden Costs</h3>
+        </div>
+        <div class="problem-card-body">
+          <div class="problem-risk-label">The Risk</div>
+          <ul class="problem-pain-list">
+            <li>Incomplete documentation and incorrect HS code classifications</li>
+            <li>Sudden regulation changes causing cargo detention</li>
+            <li>Unexpected demurrage and container storage fees escalate costs</li>
+          </ul>
+          <div class="problem-solution-label">How We Solve It</div>
+          <div class="problem-solution">
+            <ul class="problem-solution-list">
+              <li>Certified Customs Broker team handling all cargo types (food, chemicals, equipment)</li>
+              <li>Pre-clearance document review and classification</li>
+              <li>Free consultation on latest regulations (HS Code, C/O, certificates)</li>
+            </ul>
+            <p class="problem-solution-link"><a href="#transport">Learn about our customs clearance process &rarr;</a></p>
+          </div>
+        </div>
+        <div class="problem-card-footer">
+          <div class="problem-result-badge">15-30% cost savings + 40% faster clearance</div>
+        </div>
+      </div>
+
+      <!-- Problem 3: Payment Security -->
+      <div class="problem-card reveal">
+        <div class="problem-card-header">
+          <div class="problem-icon-wrap">
+            <div class="problem-icon">🚀</div>
+          </div>
+          <h3>Payment Security</h3>
+        </div>
+        <div class="problem-card-body">
+          <div class="problem-risk-label">The Risk</div>
+          <ul class="problem-pain-list">
+            <li>Fake payment instructions</li>
+            <li>Unauthorized bank account changes</li>
+            <li>Payment fraud and financial risks</li>
+          </ul>
+          <div class="problem-solution-label">How We Solve It</div>
+          <div class="problem-solution">
+            <ul class="problem-solution-list">
+              <li>Official company-managed operations only</li>
+              <li>Payments to verified corporate bank accounts only</li>
+              <li>No employee is authorized to collect payments through personal accounts</li>
+              <li>Secure verification before every transaction</li>
+            </ul>
+          </div>
+        </div>
+        <div class="problem-card-footer">
+          <div class="problem-result-badge">500+ urgent shipments/year, 98% satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== TRANSPORT MODES ===== -->
 <section id="transport">
   <div class="container">
     <div class="transport-header">
       <div class="section-tag reveal">Our Services</div>
-      <h2 class="reveal">Logistics Services for Your Business</h2>
+      <h2 class="reveal">Sea Freight, Air Freight & Customs Clearance Services</h2>
       <p class="reveal">End-to-end supply chain solutions for every mode of transport.</p>
     </div>
 
@@ -1355,7 +1739,7 @@ body.loading { overflow: hidden; height: 100vh; }
         </div>
         <div class="transport-card-body">
           <span class="tc-tag">Air Transport</span>
-          <h3>Fast Air Freight</h3>
+          <h3>Air Freight</h3>
           <p>Reliable air freight solutions for urgent and high-value shipments to destinations worldwide - fast, secure, and tracked.</p>
         </div>
       </div>
@@ -1403,7 +1787,7 @@ body.loading { overflow: hidden; height: 100vh; }
         </div>
         <div class="transport-card-body">
           <span class="tc-tag">Door to Door</span>
-          <h3>Complete D2D Service</h3>
+          <h3>Door-to-Door Logistics</h3>
           <p>End-to-end logistics management - from origin pickup to final-mile delivery, all handled by our team.</p>
         </div>
       </div>
@@ -1432,7 +1816,7 @@ body.loading { overflow: hidden; height: 100vh; }
       <div class="about-text">
         <div class="section-tag reveal">About Us</div>
         <h2 class="reveal">Your Trusted Partner in Logistics</h2>
-        <p class="reveal">At Cargotrans Viet Nam, we deliver seamless, efficient, and innovative logistics that connect businesses to global markets. We manage the movement of goods from origin to destination with precision and care - reliability every step of the way.</p>
+        <p class="reveal">At Cargotrans Vietnam, we deliver seamless sea freight, air freight, and customs brokerage solutions that connect businesses to global markets. We manage the movement of goods from origin to destination with precision and care - reliability every step of the way. <a href="#why" style="color:var(--navy);font-weight:600;text-decoration:underline;">See why 1,688+ clients trust us &rarr;</a></p>
 
         <ul class="strengths" id="strengths-list">
           <li class="strength-item" data-delay="0">
@@ -1455,18 +1839,19 @@ body.loading { overflow: hidden; height: 100vh; }
 
         <div class="contact-person-card reveal">
           <div class="cp-avatar">
-            <img src="./assets/images/banner/mary_sales_manager.jpg" alt="Mary - Sales Manager" />
+            <img src="./assets/images/banner/mary_sales_manager.jpeg" alt="Mary - Sales Manager" />
           </div>
           <div class="cp-info">
             <div class="cp-name">Mary</div>
             <div class="cp-role">Sales Manager</div>
           </div>
-          <div class="cp-links">
-            <a href="mailto:mary@cargotrans.vn" class="cp-link" title="Email Mary">
+          <div class="cp-links" style="display: flex; flex-direction: row; gap: 0.75rem; align-items: center;">
+            <a href="mailto:mary@cargotrans.vn" class="cp-link" style="color: var(--navy);" title="Email Mary">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M1 4.5l6 4 6-4" stroke="currentColor" stroke-width="1.3"/></svg>
             </a>
-            <a href="https://api.whatsapp.com/send/?phone=84947327796&text=Hello" target="_blank" rel="noopener noreferrer" class="cp-link" title="WhatsApp Mary">
+            <a href="https://api.whatsapp.com/send/?phone=84947327796&text=Hello" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-pill); color: var(--text-primary); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: all 0.25s var(--ease-expo);" onmouseover="this.style.background='var(--navy)'; this.style.color='var(--white)'; this.style.borderColor='var(--navy)';" onmouseout="this.style.background='var(--white)'; this.style.color='var(--text-primary)'; this.style.borderColor='var(--gray-200)';" title="WhatsApp Mary">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span>+84 94 732 7796</span>
             </a>
           </div>
         </div>
@@ -1484,33 +1869,39 @@ body.loading { overflow: hidden; height: 100vh; }
         <p class="reveal">We understand every business has unique logistics needs.</p>
       </div>
 
-      <!-- Clients big number -->
-      <div class="why-card why-clients c5 reveal">
-        <div class="wc-num"><span class="counter" data-target="1688">0</span><span class="wc-plus">+</span></div>
-        <div class="wc-label">Satisfied Clients Worldwide</div>
-      </div>
-
-      <!-- Reliability -->
-      <div class="why-card c7 reveal">
-        <div class="why-card-icon">🛡️</div>
-        <h3>Reliability You Can Trust</h3>
-        <p>Goods delivered safely and on time, every time - backed by rigorous quality controls and proactive communication throughout the shipping process.</p>
-      </div>
-
-      <!-- Feature card with animated CSS radar visual -->
-      <div class="why-card feature c7 reveal">
+      <!-- USP 1: Global Network + Local Expertise -->
+      <div class="why-card feature c12 reveal">
         <div class="wf-text">
           <div class="why-card-icon">🌐</div>
           <h3>Global Reach, Local Expertise</h3>
-          <p>Strong presence across Vietnam with global partnerships spanning 50+ countries. We connect you to the world with local knowledge at every port.</p>
+          <p>5+ offices and representatives at major logistics hubs across Vietnam, Asia, Europe, and North America. We understand Vietnam's import-export regulations AND each regional market's requirements. Direct connections to 50+ countries.</p>
+          <p style="margin-top: 0.75rem;">✓ No need for multiple providers – one partner handles your entire end-to-end supply chain.</p>
         </div>
       </div>
 
-      <!-- Customer centric -->
-      <div class="why-card c5 reveal">
-        <div class="why-card-icon">👥</div>
-        <h3>Customer-Centric Approach</h3>
-        <p>Tailored solutions and dedicated support designed around your unique business requirements and timelines.</p>
+      <!-- USP 2: Strategic Partnerships -->
+      <div class="why-card c6 reveal">
+        <div class="why-card-icon">🤝</div>
+        <h3>Authorized Agent of Top Global Carriers</h3>
+        <p style="font-size: 0.82rem; color: rgba(255,255,255,0.7); margin-bottom: 0.75rem;">WCA Member • FMC Authorized Agent • JC Trans Certified</p>
+        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.65); margin-bottom: 0.75rem;">Partners: ONE, Maersk, COSCO, PIL, APL, CMA CGM, Yang Ming</p>
+        <p>Strategic partnerships with the world's leading shipping lines and airlines.</p>
+        <p style="margin-top: 0.75rem;">✓ Priority space during peak seasons<br/>✓ Competitive freight rates through volume agreements<br/>✓ Fast resolution of issues through direct carrier access</p>
+      </div>
+
+      <!-- USP 3: 12+ Years Experience -->
+      <div class="why-card c6 reveal">
+        <div class="why-card-icon">🏆</div>
+        <h3>Proven Track Record Across Industries</h3>
+        <p style="font-size: 0.82rem; color: rgba(255,255,255,0.7); margin-bottom: 0.75rem;">Founded 2014 • 1,688+ satisfied clients • Specialized in complex shipments • Team average 8+ years experience</p>
+        <p>We've navigated every scenario – from natural disasters and port strikes to sudden policy changes.</p>
+        <p style="margin-top: 0.75rem;">✓ Risk mitigation through experience<br/>✓ Specialized handling for complex cargo types<br/>✓ Proactive problem-solving backed by decades of combined expertise</p>
+      </div>
+
+      <!-- Clients big number -->
+      <div class="why-card why-clients c4 reveal">
+        <div class="wc-num"><span class="counter" data-target="1688">0</span><span class="wc-plus">+</span></div>
+        <div class="wc-label">Satisfied Clients Worldwide</div>
       </div>
 
       <!-- Comprehensive -->
@@ -1525,13 +1916,6 @@ body.loading { overflow: hidden; height: 100vh; }
         <div class="why-card-icon">⚡</div>
         <h3>Fast &amp; Flexible</h3>
         <p>Responsive operations and flexible options to adapt to your changing business demands.</p>
-      </div>
-
-      <!-- Founded since -->
-      <div class="why-card c4 reveal">
-        <div class="why-card-icon">🏆</div>
-        <h3>12+ Years Experience</h3>
-        <p>Over a decade of excellence connecting Vietnamese businesses to global markets.</p>
       </div>
     </div>
   </div>
@@ -1569,7 +1953,7 @@ body.loading { overflow: hidden; height: 100vh; }
     <div style="text-align:center; margin-bottom:0.5rem;">
     </div>
     <div style="text-align:center;">
-      <h2 class="reveal" style="font-family:var(--font-d);font-size:clamp(1.9rem,3.5vw,2.9rem);font-weight:800;color:var(--navy);letter-spacing:-0.03em;margin-bottom:0.75rem;">Reliable Equipment · Seamless Operations</h2>
+      <h2 class="reveal" style="font-family:var(--font-d);font-size:clamp(1.9rem,3.5vw,2.9rem);font-weight:800;color:var(--navy);letter-spacing:-0.03em;margin-bottom:0.75rem;">Container & Equipment Solutions</h2>
       <p class="reveal" style="color:var(--text-secondary);max-width:460px;margin:0 auto;">Specialized container and NVOCC services powering your global operations.</p>
     </div>
 
@@ -1674,11 +2058,11 @@ body.loading { overflow: hidden; height: 100vh; }
 <section id="cta">
   <div class="container">
     <div class="cta-inner">
-      <h2 class="reveal">One of Vietnam's <em>Leading</em><br/>Logistics Companies</h2>
-      <p class="reveal">Logistics service providers play a pivotal role in the global supply chain. Let us be your trusted partner.</p>
+      <h2 class="reveal">Ready to Optimize Your <em>Supply Chain?</em></h2>
+      <p class="reveal">Get free consultation from logistics experts with 12+ years of experience. We analyze your needs and propose the most optimized solution for cost and time.</p>
       <div class="cta-btns reveal">
-        <a href="mailto:mary@cargotrans.vn?subject=Shipment%20Booking%20Request&body=Hello%20Mary%2C%0A%0AI%20would%20like%20to%20book%20a%20shipment%20with%20Cargotrans.%0A%0AShipment%20Details%3A%0A-%20Cargo%20type%3A%20%0A-%20Origin%3A%20%0A-%20Destination%3A%20%0A-%20Volume%2FWeight%3A%20%0A-%20Preferred%20shipping%20method%3A%20%0A-%20Expected%20shipping%20date%3A%20%0A%0AThank%20you." class="btn-white">
-          Book Your Shipment
+        <a href="mailto:mary@cargotrans.vn?subject=Request%20for%20Free%20Consultation&body=Hello%20Mary%2C%0A%0AI%20would%20like%20to%20request%20a%20free%20consultation%20for%20logistics%20services.%0A%0ADetails%3A%0A-%20Business%20type%3A%20%0A-%20Current%20logistics%20challenges%3A%20%0A-%20Shipping%20routes%3A%20%0A-%20Volume%2FFrequency%3A%20%0A%0AThank%20you." class="btn-white">
+          Schedule Free Consultation
           <span class="btn-white-icon">
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M6.5 2l4.5 4.5L6.5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
@@ -1688,6 +2072,7 @@ body.loading { overflow: hidden; height: 100vh; }
           +84 243 222 2131
         </a>
       </div>
+      <p class="reveal" style="text-align: center; font-size: 0.85rem; color: rgba(255,255,255,0.65); margin-top: 2rem; font-style: italic;">Trusted by 1,688+ import-export businesses in Vietnam and the region</p>
     </div>
   </div>
 </section>
