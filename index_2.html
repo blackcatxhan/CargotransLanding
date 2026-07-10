@@ -1188,8 +1188,27 @@ body.loading { overflow: hidden; height: 100vh; }
   box-shadow: var(--shadow-sm);
   overflow: hidden;
   transition: all 0.45s var(--ease-expo);
-  padding: 2rem;
   cursor: default;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.problem-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--navy), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-expo);
+}
+
+.problem-card:hover::before {
+  transform: scaleX(1);
 }
 
 .problem-card:hover {
@@ -1198,37 +1217,83 @@ body.loading { overflow: hidden; height: 100vh; }
   border-color: var(--navy-pale);
 }
 
+.problem-card-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.problem-card-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.4), transparent);
+}
+
 .problem-icon-wrap {
-  height: 80px;
+  width: 64px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  margin: 0 auto 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .problem-icon {
-  font-size: 2.5rem;
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 
 .problem-card h3 {
   font-family: var(--font-d);
   font-size: 1.2rem;
   font-weight: 800;
-  color: var(--navy);
-  margin-bottom: 1rem;
+  color: var(--white);
+  margin: 0;
   letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.problem-card-body {
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.problem-risk-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy);
+  opacity: 0.6;
+  margin-bottom: 0.75rem;
 }
 
 .problem-pain-list {
   list-style: none;
-  margin: 1rem 0 1.5rem;
+  margin: 0 0 1.5rem;
   padding: 0;
+  height: 150px;
 }
 
 .problem-pain-list li {
   position: relative;
   padding-left: 1.5rem;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.65rem;
   font-size: 0.88rem;
   color: var(--text-secondary);
   line-height: 1.6;
@@ -1238,30 +1303,43 @@ body.loading { overflow: hidden; height: 100vh; }
   content: '✕';
   position: absolute;
   left: 0;
-  color: #e74c3c;
+  color: var(--navy);
+  opacity: 0.4;
   font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.problem-solution-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy);
+  opacity: 0.6;
+  margin-bottom: 0.75rem;
 }
 
 .problem-solution {
-  background: var(--navy-pale);
-  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 1.25rem 1.5rem;
   border-radius: var(--radius-md);
-  margin: 1.5rem 0;
-  border-left: 3px solid var(--navy);
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
 }
 
-.problem-solution strong {
-  color: var(--navy);
-  font-size: 0.9rem;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.problem-solution p {
-  font-size: 0.87rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-  margin: 0;
+.problem-solution::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent);
 }
 
 .problem-solution-list {
@@ -1272,38 +1350,85 @@ body.loading { overflow: hidden; height: 100vh; }
 
 .problem-solution-list li {
   position: relative;
-  padding-left: 1.5rem;
-  margin-bottom: 0.6rem;
+  padding-left: 1.75rem;
+  margin-bottom: 0.65rem;
   font-size: 0.87rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.65;
 }
 
 .problem-solution-list li:last-child { margin-bottom: 0; }
 
 .problem-solution-list li::before {
-  content: '✓';
+  content: '';
   position: absolute;
   left: 0;
-  color: #27ae60;
+  top: 0.45rem;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+}
+
+.problem-solution-list li::after {
+  content: '✓';
+  position: absolute;
+  left: 5px;
+  top: 0.4rem;
+  color: var(--navy);
   font-weight: bold;
+  font-size: 0.75rem;
+  z-index: 1;
 }
 
 .problem-solution-link {
   font-size: 0.85rem;
-  margin-top: 0.85rem !important;
+  margin-top: auto;
+  display: block;
+}
+
+.problem-solution-link a {
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.problem-solution-link a:hover {
+  color: var(--gold-light);
+}
+
+.problem-card-footer {
+  padding: 0 2rem 2rem;
+  margin-top: auto;
+  text-align: center;
 }
 
 .problem-result-badge {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
-  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--navy);
+  border: 2px solid var(--gold);
+  color: var(--gold);
   font-family: var(--font-d);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.1rem;
   border-radius: var(--radius-pill);
-  margin-top: 1rem;
+  transition: all 0.3s var(--ease-expo);
+  white-space: nowrap;
+}
+
+.problem-result-badge::before {
+  content: '⭐';
+  font-size: 0.9rem;
+}
+
+.problem-card:hover .problem-result-badge {
+  background: var(--gold);
+  color: var(--navy);
+  transform: scale(1.05);
 }
 
 /* Responsive - reuse transport-cards breakpoints */
@@ -1317,8 +1442,14 @@ body.loading { overflow: hidden; height: 100vh; }
   .problems-grid {
     grid-template-columns: 1fr;
   }
-  .problem-card {
+  .problem-card-header {
     padding: 1.5rem;
+  }
+  .problem-card-body {
+    padding: 1.5rem;
+  }
+  .problem-card-footer {
+    padding: 0 1.5rem 1.5rem;
   }
 }
 </style>
@@ -1487,70 +1618,91 @@ body.loading { overflow: hidden; height: 100vh; }
     <div class="problems-grid">
       <!-- Problem 1: Delayed or Lost Shipments -->
       <div class="problem-card reveal">
-        <div class="problem-icon-wrap">
-          <div class="problem-icon">⚠️</div>
+        <div class="problem-card-header">
+          <div class="problem-icon-wrap">
+            <div class="problem-icon">⚠️</div>
+          </div>
+          <h3>Delayed or Lost Shipments</h3>
         </div>
-        <h3>Delayed or Lost Shipments</h3>
-        <ul class="problem-pain-list">
-          <li>Late shipments disrupt production schedules</li>
-          <li>Lost orders lead to customer compensation claims</li>
-          <li>Financial losses and damaged business reputation</li>
-        </ul>
-        <div class="problem-solution">
-          <strong>Our Solution:</strong>
-          <ul class="problem-solution-list">
-            <li>24/7 real-time cargo tracking system</li>
-            <li>Strategic partnerships with 8+ top carriers (Maersk, ONE, COSCO, CMA CGM)</li>
-            <li>Compensation guarantee for delays caused by our shipping operations</li>
+        <div class="problem-card-body">
+          <div class="problem-risk-label">The Risk</div>
+          <ul class="problem-pain-list">
+            <li>Late shipments disrupt production schedules</li>
+            <li>Lost orders lead to customer compensation claims</li>
+            <li>Financial losses and damaged business reputation</li>
           </ul>
-          <p class="problem-solution-link"><a href="#transport" style="color:var(--navy);font-weight:600;text-decoration:underline;">See our sea &amp; air freight services &rarr;</a></p>
+          <div class="problem-solution-label">How We Solve It</div>
+          <div class="problem-solution">
+            <ul class="problem-solution-list">
+              <li>24/7 real-time cargo tracking system</li>
+              <li>Strategic partnerships with 8+ top carriers (Maersk, ONE, COSCO, CMA CGM)</li>
+              <li>Compensation guarantee for delays caused by our shipping operations</li>
+            </ul>
+            <p class="problem-solution-link"><a href="#transport">See our sea &amp; air freight services &rarr;</a></p>
+          </div>
         </div>
-        <div class="problem-result-badge">99.2% on-time or early delivery</div>
+        <div class="problem-card-footer">
+          <div class="problem-result-badge">99.2% on-time or early delivery</div>
+        </div>
       </div>
 
       <!-- Problem 2: Complex Customs Procedures & Hidden Costs -->
       <div class="problem-card reveal">
-        <div class="problem-icon-wrap">
-          <div class="problem-icon">📋</div>
+        <div class="problem-card-header">
+          <div class="problem-icon-wrap">
+            <div class="problem-icon">📋</div>
+          </div>
+          <h3>Complex Customs Clearance Procedures & Hidden Costs</h3>
         </div>
-        <h3>Complex Customs Clearance Procedures & Hidden Costs</h3>
-        <ul class="problem-pain-list">
-          <li>Incomplete documentation and incorrect HS code classifications</li>
-          <li>Sudden regulation changes causing cargo detention</li>
-          <li>Unexpected demurrage and container storage fees escalate costs</li>
-        </ul>
-        <div class="problem-solution">
-          <strong>Our Solution:</strong>
-          <ul class="problem-solution-list">
-            <li>Certified Customs Broker team handling all cargo types (food, chemicals, equipment)</li>
-            <li>Pre-clearance document review and classification</li>
-            <li>Free consultation on latest regulations (HS Code, C/O, certificates)</li>
+        <div class="problem-card-body">
+          <div class="problem-risk-label">The Risk</div>
+          <ul class="problem-pain-list">
+            <li>Incomplete documentation and incorrect HS code classifications</li>
+            <li>Sudden regulation changes causing cargo detention</li>
+            <li>Unexpected demurrage and container storage fees escalate costs</li>
           </ul>
-          <p class="problem-solution-link"><a href="#transport" style="color:var(--navy);font-weight:600;text-decoration:underline;">Learn about our customs clearance process &rarr;</a></p>
+          <div class="problem-solution-label">How We Solve It</div>
+          <div class="problem-solution">
+            <ul class="problem-solution-list">
+              <li>Certified Customs Broker team handling all cargo types (food, chemicals, equipment)</li>
+              <li>Pre-clearance document review and classification</li>
+              <li>Free consultation on latest regulations (HS Code, C/O, certificates)</li>
+            </ul>
+            <p class="problem-solution-link"><a href="#transport">Learn about our customs clearance process &rarr;</a></p>
+          </div>
         </div>
-        <div class="problem-result-badge">15-30% cost savings + 40% faster clearance</div>
+        <div class="problem-card-footer">
+          <div class="problem-result-badge">15-30% cost savings + 40% faster clearance</div>
+        </div>
       </div>
 
       <!-- Problem 3: No Flexible Solutions for Urgent/High-Value Cargo -->
       <div class="problem-card reveal">
-        <div class="problem-icon-wrap">
-          <div class="problem-icon">🚀</div>
+        <div class="problem-card-header">
+          <div class="problem-icon-wrap">
+            <div class="problem-icon">🚀</div>
+          </div>
+          <h3>No Flexible Solutions for Urgent/High-Value Cargo</h3>
         </div>
-        <h3>No Flexible Solutions for Urgent/High-Value Cargo</h3>
-        <ul class="problem-pain-list">
-          <li>Urgent orders with no suitable shipping options available</li>
-          <li>High-value cargo with insurance and handling concerns</li>
-          <li>Lack of specialized handling for unique shipment needs</li>
-        </ul>
-        <div class="problem-solution">
-          <strong>Our Solution:</strong>
-          <ul class="problem-solution-list">
-            <li>Multiple shipping modes: Air freight (1-3 days), Ocean (LCL/FCL), Road, or combined multi-modal solutions</li>
-            <li>Door-to-Door service from your warehouse to recipient's door</li>
-            <li>Comprehensive cargo insurance at competitive rates</li>
+        <div class="problem-card-body">
+          <div class="problem-risk-label">The Risk</div>
+          <ul class="problem-pain-list">
+            <li>Urgent orders with no suitable shipping options available</li>
+            <li>High-value cargo with insurance and handling concerns</li>
+            <li>Lack of specialized handling for unique shipment needs</li>
           </ul>
+          <div class="problem-solution-label">How We Solve It</div>
+          <div class="problem-solution">
+            <ul class="problem-solution-list">
+              <li>Multiple shipping modes: Air freight (1-3 days), Ocean (LCL/FCL), Road, or combined multi-modal solutions</li>
+              <li>Door-to-Door service from your warehouse to recipient's door</li>
+              <li>Comprehensive cargo insurance at competitive rates</li>
+            </ul>
+          </div>
         </div>
-        <div class="problem-result-badge">500+ urgent shipments/year, 98% satisfaction</div>
+        <div class="problem-card-footer">
+          <div class="problem-result-badge">500+ urgent shipments/year, 98% satisfaction</div>
+        </div>
       </div>
     </div>
   </div>
